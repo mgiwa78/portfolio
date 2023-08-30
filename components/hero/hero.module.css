@@ -1,0 +1,28 @@
+.hero_section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 70vh;
+}
+.hero_text {
+  font-size: 58px;
+  width: 50%;
+  color: #42446e;
+  font-weight: 700;
+}
+.text_highlight {
+  color: #0066ff;
+}
+.hero_img_container {
+  border-radius: 230px;
+  width: 50%;
+  border: 1px solid black;
+}
+.hero_img {
+  width: 400px;
+  height: 400px;
+  border-radius: 230px;
+  background: url(/IMG_20230611_092418_486.jpg), lightgray 50% no-repeat;
+  background-position: center;
+  background-size: cover;
+}

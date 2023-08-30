@@ -1,0 +1,25 @@
+.nav_item {
+  color: #666;
+  text-align: center;
+
+  /* Buttons / Big */
+  font-family: "Open Sans";
+  font-size: 17px;
+  font-weight: bold;
+  font-style: normal;
+  cursor: pointer;
+  font-weight: 500;
+  line-height: 26px; /* 130% */
+}
+
+.navigation_bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
