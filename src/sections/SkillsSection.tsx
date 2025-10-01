@@ -90,7 +90,7 @@ export default function SkillsSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className="mb-20 w-full py-24"
+        className="mb-20 w-full  md:py-20"
       >
         <div className="relative h-20 flex items-center overflow-hidden">
           <LogoLoop
