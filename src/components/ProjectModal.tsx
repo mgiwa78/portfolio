@@ -213,7 +213,7 @@ export default function ProjectModal({
               </motion.div>
 
               {/* CTA Button */}
-              <motion.div
+              {/* <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.9 }}
@@ -221,7 +221,7 @@ export default function ProjectModal({
               >
                 <button className="btn-primary">View Live Demo</button>
                 <button className="btn-secondary">View on GitHub</button>
-              </motion.div>
+              </motion.div> */}
             </div>
           </div>
         </div>

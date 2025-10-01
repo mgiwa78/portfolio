@@ -209,50 +209,6 @@ export default function ContactSection() {
           ))}
         </motion.div>
 
-        {/* CTA Button with Pulse Glow */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mb-16"
-        >
-          <motion.button
-            className="relative btn-primary text-lg px-8 py-4 overflow-hidden group"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            {/* Pulsing Glow Effect */}
-            <motion.div
-              className="absolute inset-0 bg-accent-blue opacity-0 group-hover:opacity-100 blur-xl"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.5, 0.8, 0.5],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-
-            <span className="relative z-10 flex items-center justify-center">
-              Let&apos;s Build the Future Together
-              <svg
-                className="w-5 h-5 ml-2"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-              </svg>
-            </span>
-          </motion.button>
-        </motion.div>
-
         {/* Footer with Social Links */}
         <motion.footer
           initial={{ opacity: 0, y: 20 }}

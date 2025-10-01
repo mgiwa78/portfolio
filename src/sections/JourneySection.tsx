@@ -82,7 +82,7 @@ export default function JourneySection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Every role has been a chapter — each challenge sharpened my
+              Every role has been a chapter each challenge sharpened my
               technical skills, leadership, and impact.
             </motion.p>
           </div>
@@ -102,36 +102,44 @@ export default function JourneySection() {
             {/* Timeline Items */}
             <div className="space-y-0">
               <TimelineItem
-                role="Front End Engineer"
-                company="Raffles Energies"
-                dates="2024 – 2025"
-                description="Revitalized two flagship energy applications that were struggling with responsiveness. Re-engineered the front-end with React and RTK, cutting load times and boosting adoption. Collaborated closely with backend engineers to ensure smooth releases."
+                role="Systems Engineer"
+                company="Aptfuel"
+                dates="May 2025 - Present"
+                description="Oversaw the entire application lifecycle, including mobile, backend, and frontend development. Managed deployment tasks, building CI/CD pipelines, and ensuring smooth feature integration. Coordinated feature planning, breaking down complex features across applications, and driving technical innovation."
                 index={0}
                 isLeft={true}
               />
               <TimelineItem
-                role="Front End Engineer"
-                company="Nexlen Systems"
-                dates="2024 – 2025"
-                description="Modernized a legacy Laravel product by introducing Vue.js, breathing new life into its UI and performance. Translated Figma designs into responsive production components, accelerating delivery and future-proofing the platform."
+                role="Software Engineer"
+                company="Freelance"
+                dates="Dec 2024  -  May 2025"
+                description="Worked on full-stack development, handling both frontend (React) and backend (Node.js, Express, MongoDB) tasks. Developed mobile applications using React Native, Expo, and Tailwind. Successfully integrated frontend and backend components, ensuring seamless functionality."
                 index={1}
                 isLeft={false}
               />
               <TimelineItem
-                role="Full Stack Engineer"
-                company="Alphatrol Limited"
-                dates="2023"
-                description="Brought Guardtrol, a real-time multi-location monitoring system, from concept to production. Built scalable front-end in React, integrated with Node.js + MongoDB backend, and established CI/CD pipelines that kept deployments seamless. Directly supported uptime across critical environments."
+                role="Frontend Engineer"
+                company="Raffles Energies"
+                dates="Jun 2024  -  Dec 2024"
+                description="Developed and maintained multiple web applications using React, ensuring high efficiency and production readiness. Resolved issues, implemented design conversions, and optimized frontend performance. Demonstrated expertise in React, delivering high-quality user interfaces and experiences."
                 index={2}
                 isLeft={true}
               />
               <TimelineItem
-                role="Laravel Engineer"
-                company="Centre for Innovation & Entrepreneurship"
-                dates="2023 – 2024"
-                description="Transformed a government LMS platform to support thousands of instructors and learners. Integrated role-based features and new responsive interfaces, creating a system that made education more accessible and efficient."
+                role="Full Stack Engineer"
+                company="Alphatrol Limited"
+                dates="Jan 2023  -  Dec 2024"
+                description="Brought Guardtrol, a real-time multi-location monitoring system, from concept to production. Built scalable front-end in React, integrated with Node.js + MongoDB backend, and established CI/CD pipelines that kept deployments seamless. Directly supported uptime across critical environments."
                 index={3}
                 isLeft={false}
+              />
+              <TimelineItem
+                role="Full Stack Web Engineer"
+                company="Bariansystems"
+                dates="May 2023  -  Nov 2023"
+                description="Led front-end development for a large-scale project using Vue.js and Laravel. Translated Figma designs into functional UI components, developed backend APIs with Laravel and MySQL, and actively participated in code reviews to ensure high-quality code and optimal application performance."
+                index={4}
+                isLeft={true}
               />
             </div>
           </div>

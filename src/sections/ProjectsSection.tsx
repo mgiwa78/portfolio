@@ -21,7 +21,7 @@ const projects: Project[] = [
     tagline:
       "Academic supervision was fragmented, slow, and paper-driven. I built Skorlar™, an end-to-end collaboration platform where supervisors and students could manage research seamlessly.",
     story:
-      "Academic supervision was fragmented, slow, and paper-driven. I built Skorlar™, an end-to-end collaboration platform where supervisors and students could manage research seamlessly.\n\nTech: Next.js, Node.js, MongoDB, JWT Auth, Docker, CI/CD\n\nImpact: Streamlined document sharing, progress tracking, and communication for dozens of academic projects — reducing delays and increasing completion rates.",
+      "Academic supervision was fragmented, slow, and paper-driven. I built Skorlar™, an end-to-end collaboration platform where supervisors and students could manage research seamlessly.\n\nTech: Next.js, Node.js, MongoDB, JWT Auth, Docker, CI/CD\n\nImpact: Streamlined document sharing, progress tracking, and communication for dozens of academic projects reducing delays and increasing completion rates.",
     stack: ["Next.js", "Node.js", "MongoDB", "JWT Auth", "Docker", "CI/CD"],
     features: [
       "Real-time communication between supervisors and students",
@@ -39,7 +39,7 @@ const projects: Project[] = [
     tagline:
       "In fast-moving logistics, clarity is everything. I designed a system that unified vendors, customers, drivers, and admins into one seamless flow.",
     story:
-      "In fast-moving logistics, clarity is everything. I designed a system that unified vendors, customers, drivers, and admins into one seamless flow.\n\nTech: Vue.js frontend, Laravel backend\n\nImpact: Enabled real-time order tracking, secure payments, and transparent role-based operations — empowering logistics providers to scale and deliver with confidence.",
+      "In fast-moving logistics, clarity is everything. I designed a system that unified vendors, customers, drivers, and admins into one seamless flow.\n\nTech: Vue.js frontend, Laravel backend\n\nImpact: Enabled real-time order tracking, secure payments, and transparent role-based operations empowering logistics providers to scale and deliver with confidence.",
     stack: ["Vue.js", "Laravel", "MySQL", "REST API", "Redis", "WebSockets"],
     features: [
       "Unified dashboard for vendors, customers, drivers, and admins",
@@ -114,7 +114,7 @@ export default function ProjectsSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                These aren&apos;t just codebases — they&apos;re products that
+                These aren&apos;t just codebases they&apos;re products that
                 solved real problems for real users.
               </motion.p>
             </div>
@@ -132,26 +132,6 @@ export default function ProjectsSection() {
                 />
               ))}
             </div>
-
-            {/* Additional Projects Teaser */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-16 text-center"
-            >
-              <p className="text-text-secondary mb-6">
-                Want to see more? Check out my GitHub for additional projects.
-              </p>
-              <motion.button
-                className="btn-primary"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                View All Projects
-              </motion.button>
-            </motion.div>
           </div>{" "}
         </div>
       </section>
