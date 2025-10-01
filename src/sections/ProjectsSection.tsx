@@ -70,7 +70,7 @@ export default function ProjectsSection() {
       <section
         ref={sectionRef}
         id="projects"
-        className="relative min-h-screen py-10 flex items-center justify-center overflow-hidden"
+        className="relative min-h-screen py-16 sm:py-20 flex items-center justify-center overflow-hidden"
       >
         <div className="container">
           {/* Animated Parallax Background */}

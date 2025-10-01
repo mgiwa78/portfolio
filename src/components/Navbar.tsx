@@ -132,18 +132,18 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* CTA Button - Enhanced */}
-          <motion.a
-            href="#contact"
-            className="relative hidden md:flex btn-primary text-sm px-6 py-2.5 group overflow-hidden"
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.6 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="relative z-10 flex items-center gap-2">
-              Get in Touch
+          {/* CTA Button - Enhanced (Desktop Only) */}
+          <div className="hidden lg:block">
+            <motion.a
+              href="#contact"
+              className="btn-primary text-sm px-6 py-2.5 inline-flex items-center gap-2"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.6 }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span>Get in Touch</span>
               <svg
                 className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
                 fill="none"
@@ -155,13 +155,13 @@ export default function Navbar() {
               >
                 <path d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
               </svg>
-            </span>
-          </motion.a>
+            </motion.a>
+          </div>
 
           {/* Mobile Menu Button - Enhanced */}
           <motion.button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden relative p-2 sm:p-2.5 text-white rounded-lg sm:rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-500/30 transition-all duration-300"
+            className="lg:hidden relative p-2 sm:p-2.5 text-white rounded-lg sm:rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-500/30 transition-all duration-300"
             whileTap={{ scale: 0.95 }}
             aria-label="Menu"
           >
