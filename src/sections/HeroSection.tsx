@@ -30,7 +30,7 @@ export default function HeroSection() {
     <section
       ref={heroRef}
       id="home"
-      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden pt-20 md:pt-0"
     >
       {/* Enhanced Grid Pattern Overlay */}
       <div className="absolute inset-0 overflow-hidden">
@@ -47,27 +47,27 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-center text-center">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center justify-center text-center max-w-5xl mx-auto">
           {/* Badge - Enhanced */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-500/10 to-violet-500/10 border border-blue-500/30 mb-8 backdrop-blur-xl shadow-lg shadow-blue-500/10"
+            className="inline-flex items-center gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-full bg-gradient-to-r from-blue-500/10 to-violet-500/10 border border-blue-500/30 mb-6 sm:mb-8 backdrop-blur-xl shadow-lg shadow-blue-500/10"
           >
-            <span className="relative flex h-2.5 w-2.5">
+            <span className="relative flex h-2 w-2 sm:h-2.5 sm:w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-green-500"></span>
             </span>
-            <span className="text-sm font-semibold bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
+            <span className="text-xs sm:text-sm font-semibold bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
               Available for new opportunities
             </span>
           </motion.div>
 
           {/* Title with Enhanced Gradient */}
           <motion.h1
-            className="font-heading font-black text-5xl sm:text-6xl lg:text-7xl xl:text-8xl mb-6 leading-[1.05] tracking-tight"
+            className="font-heading font-black text-3xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 sm:mb-6 leading-[1.1] sm:leading-[1.05] tracking-tight"
             initial="hidden"
             animate="visible"
           >
@@ -94,7 +94,7 @@ export default function HeroSection() {
 
           {/* Subtitle - Enhanced */}
           <motion.p
-            className="text-xl sm:text-2xl lg:text-3xl text-text-secondary max-w-4xl mb-6 font-medium leading-relaxed"
+            className="text-base sm:text-xl lg:text-2xl text-text-secondary max-w-3xl mb-4 sm:mb-6 font-medium leading-relaxed px-2"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -116,7 +116,7 @@ export default function HeroSection() {
 
           {/* Sub-copy */}
           <motion.p
-            className="text-base sm:text-lg text-text-tertiary max-w-[600px] mx-auto mb-12 leading-relaxed px-4"
+            className="text-sm sm:text-base text-text-tertiary max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -127,13 +127,13 @@ export default function HeroSection() {
 
           {/* CTA Buttons */}
           <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto px-4 sm:px-0"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
           >
             <motion.button
-              className="btn-primary min-w-[200px]"
+              className="btn-primary w-full sm:w-auto sm:min-w-[200px]"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -152,7 +152,7 @@ export default function HeroSection() {
             </motion.button>
             <motion.a
               href="#journey"
-              className="btn-secondary min-w-[200px]"
+              className="btn-secondary w-full sm:w-auto sm:min-w-[200px]"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >

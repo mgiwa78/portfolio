@@ -168,7 +168,7 @@ export default function ContactSection() {
     <section
       ref={sectionRef}
       id="contact"
-      className="relative min-h-screen flex flex-col items-center justify-center px-6 lg:px-8 py-20 overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-16 sm:py-20 overflow-hidden"
     >
       {/* Particle Canvas Background */}
       <canvas

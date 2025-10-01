@@ -41,7 +41,7 @@ export default function JourneySection() {
     <section
       ref={timelineSectionRef}
       id="journey"
-      className="relative min-h-screen flex items-center justify-center bg-background py-10 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center bg-background py-16 sm:py-20 overflow-hidden"
     >
       <div className="container">
         {/* Background Decoration */}

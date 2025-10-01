@@ -37,7 +37,7 @@ export default function SkillsSection() {
   return (
     <section
       id="skills"
-      className="relative py-20 min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-background to-surface overflow-hidden"
+      className="relative py-16 sm:py-20 min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-background to-surface overflow-hidden"
     >
       <div className="container">
         {/* Background Decoration */}

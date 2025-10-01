@@ -1,16 +1,22 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+
+      // Close mobile menu on scroll
+      if (isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
 
       const sections = ["home", "skills", "journey", "projects", "contact"];
       const current = sections.find((section) => {
@@ -26,7 +32,19 @@ export default function Navbar() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isMobileMenuOpen]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
 
   const navItems = [
     { name: "Home", href: "#home" },
@@ -38,33 +56,29 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className={`fixed flex justify-center items-center w-screen top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? "bg-surface/95 backdrop-blur-2xl shadow-2xl border-b border-white/[0.08]"
+      className={`fixed w-full top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled || isMobileMenuOpen
+          ? "bg-surface/98 backdrop-blur-2xl shadow-2xl border-b border-white/[0.08]"
           : "bg-transparent"
       }`}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     >
-      <div className="container">
-        <div className="flex items-center justify-between h-20 w-full">
+      <div className="container px-4 sm:px-6">
+        <div className="flex items-center justify-between h-16 sm:h-20 w-full">
           {/* Logo - Enhanced */}
-          <Link href="/" className=" group">
+          <Link href="/" className="group">
             <motion.div
-              className="flex items-center gap-3"
+              className="flex items-center gap-2 sm:gap-3"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className="relative">
-                {/* Glow effect on hover */}
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-500 to-violet-500 opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300" />
-              </div>
               <div className="flex flex-col">
-                <span className="text-lg font-heading font-bold text-white leading-none mb-0.5">
+                <span className="text-sm sm:text-lg font-heading font-bold text-white leading-none mb-0.5">
                   Giwa Muhammad
                 </span>
-                <span className="text-xs text-text-tertiary leading-none">
+                <span className="text-[10px] sm:text-xs text-text-tertiary leading-none">
                   Software Engineer
                 </span>
               </div>
@@ -146,24 +160,98 @@ export default function Navbar() {
 
           {/* Mobile Menu Button - Enhanced */}
           <motion.button
-            className="md:hidden relative p-2.5 text-white rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-500/30 transition-all duration-300"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden relative p-2 sm:p-2.5 text-white rounded-lg sm:rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-500/30 transition-all duration-300"
             whileTap={{ scale: 0.95 }}
             aria-label="Menu"
           >
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
+            {isMobileMenuOpen ? (
+              <svg
+                className="w-5 h-5 sm:w-6 sm:h-6"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            ) : (
+              <svg
+                className="w-5 h-5 sm:w-6 sm:h-6"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            )}
           </motion.button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="md:hidden w-full border-t border-white/10 bg-surface backdrop-blur-2xl overflow-hidden shadow-2xl"
+          >
+            <div className="px-4 py-6 max-h-[calc(100vh-5rem)] overflow-y-auto">
+              <div className="flex flex-col gap-3">
+                {navItems.map((item, index) => {
+                  const isActive = activeSection === item.href.substring(1);
+                  return (
+                    <motion.a
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.05 }}
+                      className={`px-5 py-3.5 rounded-xl text-base font-semibold transition-all duration-300 ${
+                        isActive
+                          ? "bg-gradient-to-r from-blue-500/20 to-violet-500/20 text-white border border-blue-500/30 shadow-lg shadow-blue-500/10"
+                          : "text-text-secondary hover:text-white hover:bg-white/5 border border-transparent"
+                      }`}
+                    >
+                      {item.name}
+                    </motion.a>
+                  );
+                })}
+                <motion.a
+                  href="#contact"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: navItems.length * 0.05 }}
+                  className="btn-primary mt-3 flex items-center justify-center gap-2 py-3.5"
+                >
+                  <span>Get in Touch</span>
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                  </svg>
+                </motion.a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Bottom glow line */}
       {isScrolled && (

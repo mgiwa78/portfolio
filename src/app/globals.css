@@ -50,6 +50,12 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
 }
+.container {
+  @media only screen and (max-width: 400px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
 
 body {
   background: var(--color-background);
