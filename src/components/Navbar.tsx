@@ -54,9 +54,25 @@ export default function Navbar() {
     { name: "Contact", href: "#contact" },
   ];
 
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+
+    // Small delay to allow menu close animation to start
+    setTimeout(() => {
+      const element = document.getElementById(href.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 100);
+  };
+
   return (
     <motion.nav
-      className={`fixed flex justify-center items-center w-full top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed flex flex-col md:flex-row justify-center items-center w-full top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled || isMobileMenuOpen
           ? "bg-surface/98 backdrop-blur-2xl shadow-2xl border-b border-white/[0.08]"
           : "bg-transparent"
@@ -212,7 +228,7 @@ export default function Navbar() {
                     <motion.a
                       key={item.name}
                       href={item.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      onClick={(e) => handleNavClick(e, item.href)}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
@@ -228,7 +244,7 @@ export default function Navbar() {
                 })}
                 <motion.a
                   href="#contact"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => handleNavClick(e, "#contact")}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: navItems.length * 0.05 }}
