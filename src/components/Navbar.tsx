@@ -75,10 +75,10 @@ export default function Navbar() {
               whileTap={{ scale: 0.98 }}
             >
               <div className="flex flex-col">
-                <span className="text-sm sm:text-lg font-heading font-bold text-white leading-none mb-0.5">
+                <span className="text-base sm:text-lg font-heading font-bold text-white leading-none mb-0.5">
                   Giwa Muhammad
                 </span>
-                <span className="text-[10px] sm:text-xs text-text-tertiary leading-none">
+                <span className="text-[12px] sm:text-xs text-text-tertiary leading-none">
                   Software Engineer
                 </span>
               </div>
