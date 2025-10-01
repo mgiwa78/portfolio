@@ -56,7 +56,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className={`fixed w-full top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed flex justify-center items-center w-full top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled || isMobileMenuOpen
           ? "bg-surface/98 backdrop-blur-2xl shadow-2xl border-b border-white/[0.08]"
           : "bg-transparent"
