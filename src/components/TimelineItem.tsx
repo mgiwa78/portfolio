@@ -41,10 +41,10 @@ export default function TimelineItem({
           group relative
           w-full md:w-[calc(50%-3rem)] 
           bg-surface/50 backdrop-blur-xl
-          border border-white/[0.08]
-          rounded-2xl p-8
+          border border-black/[0.08]
+          rounded-lg p-8
           transition-all duration-300
-          hover:border-white/[0.12] hover:bg-surface/70
+          hover:border-black/[0.12] hover:bg-surface/70
           ${isLeft ? "md:mr-auto md:text-right" : "md:ml-auto md:text-left"}
         `}
         whileHover={{ y: -4 }}
@@ -52,9 +52,8 @@ export default function TimelineItem({
         <div className="relative z-10">
           {/* Dates Badge */}
           <div
-            className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-accent-blue/10 border border-accent-blue/20 mb-4 ${
-              isLeft ? "md:ml-auto" : ""
-            }`}
+            className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-accent-blue/10 border border-accent-blue/20 mb-4 ${isLeft ? "md:ml-auto" : ""
+              }`}
           >
             <span className="text-xs font-semibold text-accent-blue uppercase tracking-wide">
               {dates}
@@ -62,7 +61,7 @@ export default function TimelineItem({
           </div>
 
           {/* Role */}
-          <h3 className="text-xl md:text-2xl font-heading font-bold text-white mb-2 leading-tight">
+          <h3 className="text-xl md:text-2xl font-heading font-bold text-text-primary mb-2 leading-tight">
             {role}
           </h3>
 

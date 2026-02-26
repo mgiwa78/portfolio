@@ -64,19 +64,19 @@ export default function SkillCard({
         delay: index * 0.08,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className="group relative bg-surface/50 backdrop-blur-xl border border-white/[0.08] rounded-2xl p-8 transition-all duration-300 hover:border-white/[0.12] hover:bg-surface/70"
+      className="group relative bg-surface/50 backdrop-blur-xl border border-black/[0.08] rounded-lg p-8 transition-all duration-300 hover:border-black/[0.12] hover:bg-surface/70"
       whileHover={{ y: -4 }}
     >
       {/* Icon */}
       <div
         ref={iconRef}
-        className="w-16 h-16 rounded-xl bg-white/[0.03] border border-white/[0.08] flex items-center justify-center text-4xl mb-5 transition-all duration-300 group-hover:bg-white/[0.05] group-hover:border-white/[0.12]"
+        className="w-16 h-16 rounded-xl bg-black/[0.03] border border-black/[0.08] flex items-center justify-center text-4xl mb-5 transition-all duration-300 group-hover:bg-black/[0.05] group-hover:border-black/[0.12]"
       >
         <span>{icon}</span>
       </div>
 
       {/* Category */}
-      <h3 className="text-xl font-heading font-bold text-white mb-3">
+      <h3 className="text-xl font-heading font-bold text-text-primary mb-3">
         {category}
       </h3>
 
@@ -90,7 +90,7 @@ export default function SkillCard({
         {skills.map((skill, idx) => (
           <span
             key={idx}
-            className="text-xs px-3 py-1.5 bg-white/[0.04] text-text-tertiary rounded-lg border border-white/[0.06] font-medium transition-all duration-200 hover:bg-white/[0.08] hover:text-text-secondary hover:border-white/[0.1]"
+            className="text-xs px-3 py-1.5 bg-black/[0.04] text-text-tertiary rounded-lg border border-black/[0.06] font-medium transition-all duration-200 hover:bg-black/[0.08] hover:text-text-secondary hover:border-black/[0.1]"
           >
             {skill}
           </span>

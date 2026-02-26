@@ -72,11 +72,10 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className={`fixed flex flex-col md:flex-row justify-center items-center w-full top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled || isMobileMenuOpen
-          ? "bg-surface/98 backdrop-blur-2xl shadow-2xl border-b border-white/[0.08]"
-          : "bg-transparent"
-      }`}
+      className={`fixed flex flex-col md:flex-row justify-center items-center w-full top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled || isMobileMenuOpen
+        ? "bg-surface/98 backdrop-blur-2xl shadow-2xl border-b border-black/[0.08]"
+        : "bg-transparent"
+        }`}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -91,7 +90,7 @@ export default function Navbar() {
               whileTap={{ scale: 0.98 }}
             >
               <div className="flex flex-col">
-                <span className="text-base sm:text-lg font-heading font-bold text-white leading-none mb-0.5">
+                <span className="text-base sm:text-lg font-heading font-bold text-text-primary leading-none mb-0.5">
                   Giwa Muhammad
                 </span>
                 <span className="text-[12px] sm:text-xs text-text-tertiary leading-none">
@@ -109,11 +108,10 @@ export default function Navbar() {
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  className={`relative group px-4 py-2.5 text-sm font-semibold rounded-xl transition-all duration-300 ${
-                    isActive
-                      ? "text-white"
-                      : "text-text-secondary hover:text-white"
-                  }`}
+                  className={`relative group px-4 py-2.5 text-sm font-semibold rounded-lg transition-all duration-300 ${isActive
+                    ? "text-text-primary"
+                    : "text-text-secondary hover:text-text-primary"
+                    }`}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 + 0.2 }}
@@ -126,7 +124,7 @@ export default function Navbar() {
                   {isActive && (
                     <motion.div
                       layoutId="activeSection"
-                      className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-violet-500/20 rounded-xl border border-blue-500/30 shadow-lg shadow-blue-500/20"
+                      className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-violet-500/20 rounded-lg border border-blue-500/30 shadow-lg shadow-blue-500/20"
                       transition={{
                         type: "spring",
                         bounce: 0.2,
@@ -137,12 +135,12 @@ export default function Navbar() {
 
                   {/* Enhanced Hover background */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-violet-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-300"
+                    className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-violet-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300"
                     whileHover={{ scale: 1.05 }}
                   />
 
                   {/* Hover glow */}
-                  <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-lg bg-blue-500/20" />
+                  <div className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-lg bg-blue-500/20" />
                 </motion.a>
               );
             })}
@@ -152,7 +150,7 @@ export default function Navbar() {
           <div className="hidden lg:block">
             <motion.a
               href="#contact"
-              className="btn-primary text-sm px-6 py-2.5 inline-flex items-center gap-2"
+              className="btn-primary text-sm inline-flex items-center gap-2"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.6 }}
@@ -177,7 +175,7 @@ export default function Navbar() {
           {/* Mobile Menu Button - Enhanced */}
           <motion.button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden relative p-2 sm:p-2.5 text-white rounded-lg sm:rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-blue-500/30 transition-all duration-300"
+            className="lg:hidden relative p-2 sm:p-2.5 text-text-primary rounded-lg sm:rounded-lg bg-black/5 hover:bg-black/10 border border-black/10 hover:border-blue-500/30 transition-all duration-300"
             whileTap={{ scale: 0.95 }}
             aria-label="Menu"
           >
@@ -218,7 +216,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="md:hidden w-full border-t border-white/10 bg-surface backdrop-blur-2xl overflow-hidden shadow-2xl"
+            className="md:hidden w-full border-t border-black/10 bg-surface backdrop-blur-2xl overflow-hidden shadow-2xl"
           >
             <div className="px-4 py-6 max-h-[calc(100vh-5rem)] overflow-y-auto">
               <div className="flex flex-col gap-3">
@@ -232,11 +230,10 @@ export default function Navbar() {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
-                      className={`px-5 py-3.5 rounded-xl text-base font-semibold transition-all duration-300 ${
-                        isActive
-                          ? "bg-gradient-to-r from-blue-500/20 to-violet-500/20 text-white border border-blue-500/30 shadow-lg shadow-blue-500/10"
-                          : "text-text-secondary hover:text-white hover:bg-white/5 border border-transparent"
-                      }`}
+                      className={`px-5 py-3.5 rounded-lg text-base font-semibold transition-all duration-300 ${isActive
+                        ? "bg-gradient-to-r from-blue-500/20 to-violet-500/20 text-text-primary border border-blue-500/30 shadow-lg shadow-blue-500/10"
+                        : "text-text-secondary hover:text-text-primary hover:bg-black/5 border border-transparent"
+                        }`}
                     >
                       {item.name}
                     </motion.a>

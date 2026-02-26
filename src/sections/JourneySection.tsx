@@ -66,7 +66,7 @@ export default function JourneySection() {
             </motion.div>
 
             <motion.h2
-              className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-4 tracking-tight"
+              className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-text-primary mb-4 tracking-tight"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

@@ -19,18 +19,18 @@ import {
 } from "react-icons/si";
 
 const techLogos = [
-  { node: <SiReact />, title: "React" },
-  { node: <SiNextdotjs />, title: "Next.js" },
-  { node: <SiTypescript />, title: "TypeScript" },
-  { node: <SiTailwindcss />, title: "Tailwind CSS" },
-  { node: <SiNodedotjs />, title: "Node.js" },
-  { node: <SiPython />, title: "Python" },
-  { node: <SiPostgresql />, title: "PostgreSQL" },
-  { node: <SiMongodb />, title: "MongoDB" },
-  { node: <SiDocker />, title: "Docker" },
-  { node: <SiGit />, title: "Git" },
-  { node: <SiFigma />, title: "Figma" },
-  { node: <SiVuedotjs />, title: "Vue.js" },
+  { node: <SiReact color="#000" />, title: "React" },
+  { node: <SiNextdotjs color="#000" />, title: "Next.js" },
+  { node: <SiTypescript color="#000" />, title: "TypeScript" },
+  { node: <SiTailwindcss color="#000" />, title: "Tailwind CSS" },
+  { node: <SiNodedotjs color="#000" />, title: "Node.js" },
+  { node: <SiPython color="#000" />, title: "Python" },
+  { node: <SiPostgresql color="#000" />, title: "PostgreSQL" },
+  { node: <SiMongodb color="#000" />, title: "MongoDB" },
+  { node: <SiDocker color="#000" />, title: "Docker" },
+  { node: <SiGit color="#000" />, title: "Git" },
+  { node: <SiFigma color="#000" />, title: "Figma" },
+  { node: <SiVuedotjs color="#000" />, title: "Vue.js" },
 ];
 
 export default function SkillsSection() {
@@ -48,7 +48,7 @@ export default function SkillsSection() {
 
         <div className="relative z-10 container mx-auto w-full">
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-2">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -62,7 +62,7 @@ export default function SkillsSection() {
             </motion.div>
 
             <motion.h2
-              className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-4 tracking-tight"
+              className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-text-primary mb-4 tracking-tight"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -90,7 +90,7 @@ export default function SkillsSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className="mb-20 w-full  md:py-20"
+        className="mb-20 w-full  md:py-4"
       >
         <div className="relative h-20 flex items-center overflow-hidden">
           <LogoLoop
@@ -102,7 +102,6 @@ export default function SkillsSection() {
             pauseOnHover={false}
             scaleOnHover={false}
             fadeOut
-            fadeOutColor="#050714"
             ariaLabel="Technology stack"
           />
         </div>

@@ -1,60 +1,11 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import ProjectCard from "@/components/ProjectCard";
-import ProjectModal from "@/components/ProjectModal";
-
-interface Project {
-  id: number;
-  title: string;
-  tagline: string;
-  story: string;
-  stack: string[];
-  features: string[];
-}
-
-const projects: Project[] = [
-  {
-    id: 1,
-    title: "Skorlar™",
-    tagline:
-      "Academic supervision was fragmented, slow, and paper-driven. I built Skorlar™, an end-to-end collaboration platform where supervisors and students could manage research seamlessly.",
-    story:
-      "Academic supervision was fragmented, slow, and paper-driven. I built Skorlar™, an end-to-end collaboration platform where supervisors and students could manage research seamlessly.\n\nTech: Next.js, Node.js, MongoDB, JWT Auth, Docker, CI/CD\n\nImpact: Streamlined document sharing, progress tracking, and communication for dozens of academic projects reducing delays and increasing completion rates.",
-    stack: ["Next.js", "Node.js", "MongoDB", "JWT Auth", "Docker", "CI/CD"],
-    features: [
-      "Real-time communication between supervisors and students",
-      "Progress tracking with milestone management",
-      "Document management with version control",
-      "Secure JWT-based authentication and authorization",
-      "Role-based access control (RBAC)",
-      "Automated email notifications",
-      "Deployed with Docker containers and CI/CD pipelines",
-    ],
-  },
-  {
-    id: 2,
-    title: "Logistics Management System",
-    tagline:
-      "In fast-moving logistics, clarity is everything. I designed a system that unified vendors, customers, drivers, and admins into one seamless flow.",
-    story:
-      "In fast-moving logistics, clarity is everything. I designed a system that unified vendors, customers, drivers, and admins into one seamless flow.\n\nTech: Vue.js frontend, Laravel backend\n\nImpact: Enabled real-time order tracking, secure payments, and transparent role-based operations empowering logistics providers to scale and deliver with confidence.",
-    stack: ["Vue.js", "Laravel", "MySQL", "REST API", "Redis", "WebSockets"],
-    features: [
-      "Unified dashboard for vendors, customers, drivers, and admins",
-      "Order management with real-time status updates",
-      "Payment processing with multiple gateways",
-      "Real-time tracking with WebSockets",
-      "Role-specific dashboards and permissions",
-      "Analytics and reporting for business insights",
-      "Mobile-responsive design for all devices",
-    ],
-  },
-];
+import { projects } from "@/data/projects";
 
 export default function ProjectsSection() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -98,7 +49,7 @@ export default function ProjectsSection() {
               </motion.div>
 
               <motion.h2
-                className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-4 tracking-tight"
+                className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-text-primary mb-4 tracking-tight"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -127,27 +78,14 @@ export default function ProjectsSection() {
                   title={project.title}
                   tagline={project.tagline}
                   stack={project.stack}
+                  slug={project.slug}
                   index={index}
-                  onClick={() => setSelectedProject(project)}
                 />
               ))}
             </div>
           </div>{" "}
         </div>
       </section>
-
-      {/* Project Modal */}
-      {selectedProject && (
-        <ProjectModal
-          isOpen={!!selectedProject}
-          onClose={() => setSelectedProject(null)}
-          title={selectedProject.title}
-          tagline={selectedProject.tagline}
-          story={selectedProject.story}
-          stack={selectedProject.stack}
-          features={selectedProject.features}
-        />
-      )}
     </>
   );
 }

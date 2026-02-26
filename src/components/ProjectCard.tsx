@@ -1,40 +1,41 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 interface ProjectCardProps {
   title: string;
   tagline: string;
   stack: string[];
+  slug: string;
   index: number;
-  onClick: () => void;
 }
 
 export default function ProjectCard({
   title,
   tagline,
   stack,
+  slug,
   index,
-  onClick,
 }: ProjectCardProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{
-        duration: 0.5,
-        delay: index * 0.1,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      whileHover={{ y: -4 }}
-      onClick={onClick}
-      className="group relative bg-surface/50 backdrop-blur-xl border border-white/[0.08] rounded-2xl p-8 cursor-pointer transition-all duration-300 hover:bg-surface/70 hover:border-white/[0.12]"
-    >
+    <Link href={`/project/${slug}`}>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{
+          duration: 0.5,
+          delay: index * 0.1,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        whileHover={{ y: -4 }}
+        className="group relative bg-surface/50 backdrop-blur-xl border border-black/[0.08] rounded-2xl p-8 cursor-pointer transition-all duration-300 hover:bg-surface/70 hover:border-black/[0.12] block"
+      >
       {/* Content */}
       <div className="relative z-10">
         {/* Title */}
-        <h3 className="text-2xl font-heading font-bold text-white mb-3">
+        <h3 className="text-2xl font-heading font-bold text-text-primary mb-3">
           {title}
         </h3>
 
@@ -48,13 +49,13 @@ export default function ProjectCard({
           {stack.slice(0, 4).map((tech, idx) => (
             <span
               key={idx}
-              className="text-xs px-3 py-1.5 bg-white/[0.04] text-text-tertiary rounded-lg border border-white/[0.06] font-medium"
+              className="text-xs px-3 py-1.5 bg-black/[0.04] text-text-tertiary rounded-lg border border-black/[0.06] font-medium"
             >
               {tech}
             </span>
           ))}
           {stack.length > 4 && (
-            <span className="text-xs px-3 py-1.5 bg-white/[0.04] text-text-tertiary rounded-lg border border-white/[0.06] font-medium">
+            <span className="text-xs px-3 py-1.5 bg-black/[0.04] text-text-tertiary rounded-lg border border-black/[0.06] font-medium">
               +{stack.length - 4} more
             </span>
           )}
@@ -80,5 +81,6 @@ export default function ProjectCard({
         </motion.div>
       </div>
     </motion.div>
+    </Link>
   );
 }
