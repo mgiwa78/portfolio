@@ -17,15 +17,26 @@ export default async function ProjectPage({ params }: PageProps) {
   if (!project) notFound();
 
   return (
-    <div className="min-h-screen bg-background">
-      <header className="mt-20 border-black/[0.08] bg-surface/50 backdrop-blur-sm sticky top-0 z-10">
-        <div className="container px-4 sm:px-6 py-4">
+    <div
+      className="min-h-screen"
+      style={{ background: "var(--color-background)" }}
+    >
+      {/* Back nav */}
+      <header
+        className="sticky top-0 z-10 mt-20"
+        style={{
+          background: "rgba(7,8,12,0.92)",
+          backdropFilter: "blur(20px)",
+          borderBottom: "1px solid rgba(201,169,110,0.1)",
+        }}
+      >
+        <div className="container mx-auto px-6 lg:px-10 py-4">
           <Link
             href="/#projects"
-            className="inline-flex items-center gap-2 text-sm font-medium text-text-secondary hover:text-accent-blue transition-colors duration-200"
+            className="project-back-link inline-flex items-center gap-2 text-xs transition-colors duration-200"
           >
             <svg
-              className="w-4 h-4"
+              className="w-3.5 h-3.5"
               fill="none"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -33,13 +44,14 @@ export default async function ProjectPage({ params }: PageProps) {
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              <path d="M15 19l-7-7 7-7"></path>
+              <path d="M15 19l-7-7 7-7" />
             </svg>
-            Projects
+            Back to Projects
           </Link>
         </div>
       </header>
-      <main className="container px-4 sm:px-6 py-10 md:py-16">
+
+      <main className="container mx-auto px-6 lg:px-10 py-14 md:py-20">
         <div className="max-w-3xl mx-auto">
           <ProjectPageContent project={project} />
         </div>

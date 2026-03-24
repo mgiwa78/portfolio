@@ -17,81 +17,115 @@ export default function TimelineItem({
   dates,
   description,
   index,
-  isLeft,
 }: TimelineItemProps) {
   return (
-    <div className="relative flex items-center w-full mb-16 md:mb-20">
-      {/* Content Card */}
-      <motion.div
-        initial={{
-          opacity: 0,
-          x: isLeft ? -50 : 50,
-        }}
-        whileInView={{
-          opacity: 1,
-          x: 0,
-        }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{
-          duration: 0.6,
-          delay: index * 0.15,
-          ease: [0.22, 1, 0.36, 1],
-        }}
-        className={`
-          group relative
-          w-full md:w-[calc(50%-3rem)] 
-          bg-surface/50 backdrop-blur-xl
-          border border-black/[0.08]
-          rounded-lg p-8
-          transition-all duration-300
-          hover:border-black/[0.12] hover:bg-surface/70
-          ${isLeft ? "md:mr-auto md:text-right" : "md:ml-auto md:text-left"}
-        `}
-        whileHover={{ y: -4 }}
-      >
-        <div className="relative z-10">
-          {/* Dates Badge */}
-          <div
-            className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-accent-blue/10 border border-accent-blue/20 mb-4 ${isLeft ? "md:ml-auto" : ""
-              }`}
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{
+        duration: 0.7,
+        delay: index * 0.1,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      className="group relative flex gap-6 md:gap-10 pb-12"
+    >
+      {/* Left: index + timeline line */}
+      <div className="flex flex-col items-center flex-shrink-0">
+        {/* Index number */}
+        <div
+          className="w-9 h-9 rounded-sm flex items-center justify-center flex-shrink-0 relative z-10"
+          style={{
+            background: "var(--color-surface-2)",
+            border: "1px solid rgba(201,169,110,0.25)",
+          }}
+        >
+          <span
+            className="font-heading"
+            style={{
+              fontSize: "0.9rem",
+              fontWeight: 600,
+              color: "var(--color-accent)",
+            }}
           >
-            <span className="text-xs font-semibold text-accent-blue uppercase tracking-wide">
-              {dates}
-            </span>
-          </div>
-
-          {/* Role */}
-          <h3 className="text-xl md:text-2xl font-heading font-bold text-text-primary mb-2 leading-tight">
-            {role}
-          </h3>
-
-          {/* Company */}
-          <h4 className="text-base md:text-lg font-semibold text-text-secondary mb-4">
-            {company}
-          </h4>
-
-          {/* Description */}
-          <p className="text-sm text-text-tertiary leading-relaxed">
-            {description}
-          </p>
+            {String(index + 1).padStart(2, "0")}
+          </span>
         </div>
-      </motion.div>
+        {/* Vertical connector (except last item) */}
+        <div
+          className="w-px flex-1 mt-2"
+          style={{
+            background:
+              "linear-gradient(to bottom, rgba(201,169,110,0.25), rgba(201,169,110,0.05))",
+            minHeight: "3rem",
+          }}
+        />
+      </div>
 
-      {/* Timeline Dot */}
-      <motion.div
-        className="absolute left-1/2 transform -translate-x-1/2 hidden md:flex items-center justify-center"
-        initial={{ scale: 0 }}
-        whileInView={{ scale: 1 }}
-        viewport={{ once: true }}
-        transition={{
-          duration: 0.4,
-          delay: index * 0.15 + 0.2,
-          type: "spring",
-          stiffness: 200,
+      {/* Right: Content */}
+      <div
+        className="flex-1 rounded-md p-6 mb-2 transition-all duration-400 group-hover:-translate-y-1"
+        style={{
+          background: "var(--color-surface)",
+          border: "1px solid rgba(201,169,110,0.1)",
+          transition: "border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease",
+        }}
+        onMouseEnter={(e) => {
+          (e.currentTarget as HTMLDivElement).style.borderColor =
+            "rgba(201,169,110,0.25)";
+          (e.currentTarget as HTMLDivElement).style.boxShadow =
+            "0 16px 48px -16px rgba(0,0,0,0.5)";
+        }}
+        onMouseLeave={(e) => {
+          (e.currentTarget as HTMLDivElement).style.borderColor =
+            "rgba(201,169,110,0.1)";
+          (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
         }}
       >
-        <div className="w-4 h-4 rounded-full bg-accent-blue border-4 border-background shadow-lg shadow-accent-blue/30" />
-      </motion.div>
-    </div>
+        {/* Date */}
+        <span
+          className="inline-block mb-3 section-label"
+          style={{ color: "var(--color-text-tertiary)" }}
+        >
+          {dates}
+        </span>
+
+        {/* Role */}
+        <h3
+          className="font-heading mb-1"
+          style={{
+            fontSize: "clamp(1.25rem, 2.2vw, 1.625rem)",
+            fontWeight: 600,
+            color: "var(--color-text-primary)",
+            letterSpacing: "-0.01em",
+            lineHeight: 1.2,
+          }}
+        >
+          {role}
+        </h3>
+
+        {/* Company */}
+        <p
+          className="mb-4 font-body"
+          style={{
+            fontSize: "0.8125rem",
+            fontWeight: 500,
+            color: "var(--color-accent)",
+            letterSpacing: "0.06em",
+            textTransform: "uppercase",
+          }}
+        >
+          {company}
+        </p>
+
+        {/* Description */}
+        <p
+          className="text-sm leading-relaxed font-body"
+          style={{ color: "var(--color-text-secondary)" }}
+        >
+          {description}
+        </p>
+      </div>
+    </motion.div>
   );
 }
