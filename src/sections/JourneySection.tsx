@@ -52,31 +52,31 @@ export default function JourneySection() {
             index={0}
           />
           <TimelineItem
-            role="Software Engineer"
-            company="Freelance"
-            dates="Dec 2024 to May 2025"
-            description="Full-stack development across React frontends and Node.js/Express/MongoDB backends. Built mobile applications with React Native and Expo, shipping complete features from API to interface."
+            role="Senior Full Stack Engineer, Architecture Lead"
+            company="Raffles Energies"
+            dates="Jun 2024 to Apr 2025"
+            description="Led end-to-end architecture and backend development for web and mobile platforms. Architected the Node.js backend and database schema from inception, implemented Redis caching and asynchronous job processing, and managed containerized production deployments."
             index={1}
           />
           <TimelineItem
-            role="Frontend Engineer"
-            company="Raffles Energies"
-            dates="Jun 2024 to Dec 2024"
-            description="Built and maintained production React applications, resolved performance issues, and converted designs into high-quality, production-ready interfaces."
+            role="Backend Engineer"
+            company="Centre for Innovation & Entrepreneurship"
+            dates="Sep 2023 to Mar 2024"
+            description="Scaled a Laravel-based learning management system supporting multi-center operations for a government organization, redesigning the relational schema to support expanded roles and institutional structure."
             index={2}
           />
           <TimelineItem
             role="Full Stack Engineer"
             company="Alphatrol Limited"
-            dates="Jan 2023 to Dec 2024"
-            description="Took Guardtrol, a real-time multi-location monitoring system, from concept to production. Built the React frontend, integrated it with a Node.js and MongoDB backend, and set up the CI/CD pipeline that kept deployments seamless."
+            dates="May 2023 to Aug 2023"
+            description="Took Guardtrol, a real-time multi-location monitoring system, from concept to production. Designed RESTful APIs and MongoDB/MySQL schemas, and implemented JWT-based authentication and authorization."
             index={3}
           />
           <TimelineItem
-            role="Full Stack Web Engineer"
-            company="Bariansystems"
-            dates="May 2023 to Nov 2023"
-            description="Led frontend development on a large-scale project in Vue.js and Laravel, translating Figma designs into functional components and building backend APIs with Laravel and MySQL."
+            role="Frontend & Backend Engineer"
+            company="Nexlen Systems"
+            dates="Jan 2023 to Apr 2023"
+            description="Migrated a legacy Laravel Blade codebase into a structured Vue.js frontend system, integrating it with backend APIs and reducing redundant requests to improve UI performance."
             index={4}
           />
         </div>

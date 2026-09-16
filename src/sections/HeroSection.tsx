@@ -136,7 +136,7 @@ export default function HeroSection() {
               View My Work
             </Link>
             <a
-              href="/Software-Engineer-Giwa-Muhammad-1.pdf"
+              href="/Giwa-Muhammad-Resume.pdf"
               download="Giwa-Muhammad-Resume.pdf"
               className="btn-secondary"
             >

@@ -138,7 +138,7 @@ export default function Navbar() {
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center">
             <motion.a
-              href="/Software-Engineer-Giwa-Muhammad-1.pdf"
+              href="/Giwa-Muhammad-Resume.pdf"
               download="Giwa-Muhammad-Resume.pdf"
               className="btn-secondary text-xs py-2 px-5"
               initial={{ opacity: 0, x: 16 }}
@@ -209,7 +209,7 @@ export default function Navbar() {
                 </motion.a>
               ))}
               <motion.a
-                href="/Software-Engineer-Giwa-Muhammad-1.pdf"
+                href="/Giwa-Muhammad-Resume.pdf"
                 download="Giwa-Muhammad-Resume.pdf"
                 initial={{ opacity: 0, x: -12 }}
                 animate={{ opacity: 1, x: 0 }}
