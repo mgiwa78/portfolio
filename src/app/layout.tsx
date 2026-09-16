@@ -1,33 +1,20 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Outfit } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import Layout from "@/components/Layout";
-
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  variable: "--font-cormorant",
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
-  display: "swap",
-});
-
-const outfit = Outfit({
-  subsets: ["latin"],
-  variable: "--font-outfit",
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Giwa Muhammad | Software Engineer",
   description:
-    "Full-stack software engineer specializing in scalable systems, modern web technologies, and impactful products.",
+    "Senior software engineer who designs and ships production systems end to end: multi-tenant SaaS, payments and escrow, realtime infrastructure, and the platforms underneath them.",
   keywords: [
     "Software Engineer",
-    "Full Stack Developer",
-    "React",
+    "Systems Architect",
+    "Full Stack Engineer",
     "Next.js",
     "Node.js",
+    "TypeScript",
     "Portfolio",
   ],
 };
@@ -38,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${outfit.variable}`}>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body className="antialiased">
         <Layout>{children}</Layout>
       </body>

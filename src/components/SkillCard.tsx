@@ -19,48 +19,18 @@ export default function SkillCard({
 }: SkillCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 32 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
-      transition={{
-        duration: 0.6,
-        delay: index * 0.08,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      whileHover={{ y: -5 }}
-      className="group relative rounded-md p-6 cursor-default overflow-hidden transition-all duration-400"
-      style={{
-        background: "var(--color-surface)",
-        border: "1px solid rgba(201,169,110,0.1)",
-        transition: "border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease",
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = "rgba(201,169,110,0.28)";
-        e.currentTarget.style.boxShadow =
-          "0 20px 50px -20px rgba(0,0,0,0.6), 0 0 0 1px rgba(201,169,110,0.06) inset";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = "rgba(201,169,110,0.1)";
-        e.currentTarget.style.boxShadow = "none";
-      }}
+      transition={{ duration: 0.5, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
+      className="card p-6"
     >
-      {/* Subtle corner accent */}
-      <div
-        className="absolute top-0 left-0 w-8 h-px"
-        style={{ background: "var(--color-accent)", opacity: 0.5 }}
-      />
-      <div
-        className="absolute top-0 left-0 h-8 w-px"
-        style={{ background: "var(--color-accent)", opacity: 0.5 }}
-      />
-
       {/* Icon */}
       <div
-        className="w-10 h-10 rounded flex items-center justify-center mb-5"
+        className="w-10 h-10 flex items-center justify-center mb-5"
         style={{
-          background: "rgba(201,169,110,0.08)",
-          border: "1px solid rgba(201,169,110,0.18)",
-          color: "var(--color-accent)",
+          border: "1px solid rgba(255,255,255,0.1)",
+          color: "var(--color-accent-bright)",
         }}
       >
         {icon}
@@ -70,7 +40,7 @@ export default function SkillCard({
       <h3
         className="mb-2 font-heading"
         style={{
-          fontSize: "1.375rem",
+          fontSize: "1.125rem",
           fontWeight: 600,
           color: "var(--color-text-primary)",
           letterSpacing: "-0.01em",
@@ -88,17 +58,14 @@ export default function SkillCard({
       </p>
 
       {/* Skills tags */}
-      <div className="flex flex-wrap gap-1.5">
-        {skills.map((skill, idx) => (
+      <div className="flex flex-wrap gap-x-3 gap-y-1.5">
+        {skills.map((skill) => (
           <span
-            key={idx}
-            className="text-xs px-2.5 py-1 rounded-sm font-medium transition-colors duration-200"
+            key={skill}
+            className="text-[11px]"
             style={{
-              fontFamily: "var(--font-body)",
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(255,255,255,0.07)",
+              fontFamily: "var(--font-mono)",
               color: "var(--color-text-secondary)",
-              letterSpacing: "0.02em",
             }}
           >
             {skill}

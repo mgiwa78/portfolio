@@ -8,7 +8,6 @@ interface TimelineItemProps {
   dates: string;
   description: string;
   index: number;
-  isLeft: boolean;
 }
 
 export default function TimelineItem({
@@ -20,81 +19,27 @@ export default function TimelineItem({
 }: TimelineItemProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{
-        duration: 0.7,
-        delay: index * 0.1,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      className="group relative flex gap-6 md:gap-10 pb-12"
+      transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+      className="group grid grid-cols-1 md:grid-cols-[9rem_1fr] gap-2 md:gap-8 py-8"
+      style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
     >
-      {/* Left: index + timeline line */}
-      <div className="flex flex-col items-center flex-shrink-0">
-        {/* Index number */}
-        <div
-          className="w-9 h-9 rounded-sm flex items-center justify-center flex-shrink-0 relative z-10"
-          style={{
-            background: "var(--color-surface-2)",
-            border: "1px solid rgba(201,169,110,0.25)",
-          }}
-        >
-          <span
-            className="font-heading"
-            style={{
-              fontSize: "0.9rem",
-              fontWeight: 600,
-              color: "var(--color-accent)",
-            }}
-          >
-            {String(index + 1).padStart(2, "0")}
-          </span>
-        </div>
-        {/* Vertical connector (except last item) */}
-        <div
-          className="w-px flex-1 mt-2"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(201,169,110,0.25), rgba(201,169,110,0.05))",
-            minHeight: "3rem",
-          }}
-        />
-      </div>
-
-      {/* Right: Content */}
-      <div
-        className="flex-1 rounded-md p-6 mb-2 transition-all duration-400 group-hover:-translate-y-1"
-        style={{
-          background: "var(--color-surface)",
-          border: "1px solid rgba(201,169,110,0.1)",
-          transition: "border-color 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease",
-        }}
-        onMouseEnter={(e) => {
-          (e.currentTarget as HTMLDivElement).style.borderColor =
-            "rgba(201,169,110,0.25)";
-          (e.currentTarget as HTMLDivElement).style.boxShadow =
-            "0 16px 48px -16px rgba(0,0,0,0.5)";
-        }}
-        onMouseLeave={(e) => {
-          (e.currentTarget as HTMLDivElement).style.borderColor =
-            "rgba(201,169,110,0.1)";
-          (e.currentTarget as HTMLDivElement).style.boxShadow = "none";
-        }}
+      {/* Dates column */}
+      <span
+        className="text-xs pt-1"
+        style={{ fontFamily: "var(--font-mono)", color: "var(--color-text-tertiary)" }}
       >
-        {/* Date */}
-        <span
-          className="inline-block mb-3 section-label"
-          style={{ color: "var(--color-text-tertiary)" }}
-        >
-          {dates}
-        </span>
+        {dates}
+      </span>
 
-        {/* Role */}
+      {/* Content */}
+      <div>
         <h3
-          className="font-heading mb-1"
+          className="font-heading mb-1 transition-colors duration-300"
           style={{
-            fontSize: "clamp(1.25rem, 2.2vw, 1.625rem)",
+            fontSize: "1.375rem",
             fontWeight: 600,
             color: "var(--color-text-primary)",
             letterSpacing: "-0.01em",
@@ -103,25 +48,21 @@ export default function TimelineItem({
         >
           {role}
         </h3>
-
-        {/* Company */}
         <p
-          className="mb-4 font-body"
+          className="mb-4"
           style={{
-            fontSize: "0.8125rem",
+            fontFamily: "var(--font-mono)",
+            fontSize: "0.75rem",
             fontWeight: 500,
-            color: "var(--color-accent)",
-            letterSpacing: "0.06em",
-            textTransform: "uppercase",
+            color: "var(--color-accent-bright)",
+            letterSpacing: "0.03em",
           }}
         >
           {company}
         </p>
-
-        {/* Description */}
         <p
-          className="text-sm leading-relaxed font-body"
-          style={{ color: "var(--color-text-secondary)" }}
+          className="text-sm leading-relaxed max-w-2xl"
+          style={{ color: "var(--color-text-secondary)", fontFamily: "var(--font-body)" }}
         >
           {description}
         </p>

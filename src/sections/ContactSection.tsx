@@ -23,183 +23,99 @@ const socialLinks = [
       </svg>
     ),
   },
-  {
-    name: "Email",
-    label: "mgiwa78@gmail.com",
-    href: "mailto:mgiwa78@gmail.com",
-    icon: (
-      <svg
-        className="w-5 h-5"
-        fill="none"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth="1.5"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    ),
-  },
 ];
 
 export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative py-24 sm:py-32 overflow-hidden"
+      className="relative py-24 sm:py-28 overflow-hidden"
       style={{ background: "var(--color-surface)" }}
     >
-      {/* Background dot grid */}
-      <div
-        className="absolute inset-0 pointer-events-none dot-grid"
-        style={{ opacity: 0.4 }}
-      />
-
-      {/* Glow */}
-      <div
-        className="absolute pointer-events-none"
-        style={{
-          top: "20%",
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "60vw",
-          height: "60vh",
-          background:
-            "radial-gradient(ellipse, rgba(201,169,110,0.07) 0%, transparent 65%)",
-        }}
-      />
-
       <div className="relative z-10 container mx-auto px-6 lg:px-10">
-        {/* Section label */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex items-center gap-4 mb-16"
-        >
-          <div
-            className="h-px w-8"
-            style={{ background: "rgba(201,169,110,0.6)" }}
-          />
-          <span className="section-label">05 — Contact</span>
-        </motion.div>
-
         {/* Main headline */}
         <motion.div
-          className="mb-12"
-          initial={{ opacity: 0, y: 30 }}
+          className="mb-10"
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.1 }}
+          transition={{ duration: 0.7 }}
         >
           <h2
-            className="font-heading leading-none"
+            className="font-heading leading-[1.05]"
             style={{
-              fontSize: "clamp(3rem, 8vw, 8rem)",
+              fontSize: "clamp(2.5rem, 6vw, 5.5rem)",
               fontWeight: 600,
               letterSpacing: "-0.03em",
               color: "var(--color-text-primary)",
+              maxWidth: "16ch",
             }}
           >
-            Let&apos;s Build
-            <br />
-            <span
-              style={{
-                WebkitTextStroke: "1.5px rgba(237,232,223,0.3)",
-                color: "transparent",
-              }}
-            >
-              Something
-            </span>
-            <br />
-            <span className="gradient-text italic">Together.</span>
+            Let&apos;s build something worth shipping.
           </h2>
         </motion.div>
 
         {/* Vision text */}
         <motion.p
-          className="text-sm leading-loose max-w-xl mb-16"
-          style={{
-            color: "var(--color-text-secondary)",
-            fontFamily: "var(--font-body)",
-          }}
-          initial={{ opacity: 0, y: 20 }}
+          className="text-sm leading-loose max-w-lg mb-12"
+          style={{ color: "var(--color-text-secondary)", fontFamily: "var(--font-body)" }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
         >
-          I build systems that outlast me. My mission is to merge AI, cloud
-          infrastructure, and intuitive design to empower businesses and users
-          worldwide.
+          Open to senior and lead engineering roles, systems work, and
+          projects that need someone comfortable owning a problem from
+          architecture through to production.
         </motion.p>
 
         {/* Rule */}
         <motion.div
-          className="mb-12"
+          className="mb-10"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="rule-accent" />
-        </motion.div>
+          transition={{ duration: 0.6 }}
+        />
 
-        {/* Social links */}
+        {/* Social links + CTA */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
-          <div className="flex flex-col sm:flex-row gap-6">
+          <div className="flex gap-6">
             {socialLinks.map((link, index) => (
               <motion.a
                 key={link.name}
                 href={link.href}
-                target={link.name !== "Email" ? "_blank" : undefined}
-                rel={link.name !== "Email" ? "noopener noreferrer" : undefined}
-                initial={{ opacity: 0, y: 16 }}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                whileHover={{ y: -2 }}
+                transition={{ duration: 0.5, delay: 0.3 + index * 0.08 }}
                 className="group flex items-center gap-3"
-                style={{
-                  color: "var(--color-text-secondary)",
-                  textDecoration: "none",
-                  transition: "color 0.3s ease",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.color =
-                    "var(--color-accent)";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.color =
-                    "var(--color-text-secondary)";
-                }}
+                style={{ color: "var(--color-text-secondary)" }}
               >
                 <span
-                  className="w-9 h-9 rounded-sm flex items-center justify-center flex-shrink-0"
-                  style={{
-                    background: "rgba(201,169,110,0.06)",
-                    border: "1px solid rgba(201,169,110,0.15)",
-                  }}
+                  className="w-9 h-9 flex items-center justify-center flex-shrink-0 transition-colors duration-200 group-hover:text-white"
+                  style={{ border: "1px solid rgba(255,255,255,0.12)" }}
                 >
                   {link.icon}
                 </span>
                 <div className="flex flex-col">
                   <span
-                    className="section-label"
+                    className="text-[10px]"
                     style={{
+                      fontFamily: "var(--font-mono)",
                       color: "var(--color-text-tertiary)",
-                      fontSize: "0.6rem",
+                      letterSpacing: "0.08em",
+                      textTransform: "uppercase",
                     }}
                   >
                     {link.name}
                   </span>
                   <span
-                    className="text-xs mt-0.5"
-                    style={{
-                      fontFamily: "var(--font-body)",
-                      fontWeight: 500,
-                    }}
+                    className="text-xs mt-0.5 transition-colors duration-200 group-hover:text-white"
+                    style={{ fontFamily: "var(--font-body)", fontWeight: 500 }}
                   >
                     {link.label}
                   </span>
@@ -208,62 +124,42 @@ export default function ContactSection() {
             ))}
           </div>
 
-          {/* CTA */}
           <motion.a
             href="mailto:mgiwa78@gmail.com"
             className="btn-primary flex-shrink-0"
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 16 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
           >
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-            </svg>
-            <span>Send a Message</span>
+            Send a Message
           </motion.a>
         </div>
 
-        {/* Footer copyright */}
+        {/* Footer */}
         <motion.div
-          className="mt-20 pt-8"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.05)" }}
+          className="mt-20 pt-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 1 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
         >
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-            <p
-              className="text-xs"
-              style={{
-                fontFamily: "var(--font-body)",
-                color: "var(--color-text-tertiary)",
-              }}
-            >
-              © {new Date().getFullYear()} Giwa Muhammad. Crafted with precision.
-            </p>
-            <p
-              className="text-xs"
-              style={{
-                fontFamily: "var(--font-body)",
-                color: "var(--color-text-tertiary)",
-                letterSpacing: "0.06em",
-              }}
-            >
-              Built with Next.js · Framer Motion · GSAP
-            </p>
-          </div>
+          <p
+            className="text-xs"
+            style={{ fontFamily: "var(--font-body)", color: "var(--color-text-tertiary)" }}
+          >
+            © {new Date().getFullYear()} Giwa Muhammad
+          </p>
+          <p
+            className="text-xs"
+            style={{
+              fontFamily: "var(--font-mono)",
+              color: "var(--color-text-tertiary)",
+            }}
+          >
+            mgiwa78@gmail.com
+          </p>
         </motion.div>
       </div>
     </section>
