@@ -1,255 +1,92 @@
 @import "tailwindcss";
 
+:root {
+  color-scheme: light dark;
+  --bg: #fafafa;
+  --fg: #18181b;
+  --muted: #52525b;
+  --subtle: #71717a;
+  --border: #e4e4e7;
+  --hover: rgba(24, 24, 27, 0.035);
+  --tag: rgba(37, 99, 235, 0.08);
+  --accent: #1d4ed8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0c0c0e;
+    --fg: #e7e7ea;
+    --muted: #a1a1aa;
+    --subtle: #82828c;
+    --border: #232327;
+    --hover: rgba(255, 255, 255, 0.035);
+    --tag: rgba(122, 162, 255, 0.12);
+    --accent: #7aa2ff;
+  }
+}
+
 @theme inline {
-  /* Graphite system — near-black, off-white, one signal accent */
-  --color-background: #0a0a0c;
-  --color-surface: #111214;
-  --color-surface-2: #17181b;
-  --color-surface-3: #1c1d21;
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-border: var(--border);
+  --color-hover: var(--hover);
+  --color-tag: var(--tag);
+  --color-accent: var(--accent);
 
-  --color-text-primary: #ededef;
-  --color-text-secondary: #9a9aa2;
-  --color-text-tertiary: #5c5c64;
-
-  --color-accent: #4c7cff;
-  --color-accent-bright: #729aff;
-  --color-accent-dim: #2c3f80;
-
-  /* Fonts */
-  --font-heading: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-geist-mono), "SFMono-Regular", Menlo, monospace;
-
-  /* Typography Scale */
-  --font-size-xs: 0.6875rem;
-  --font-size-sm: 0.8125rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 1.875rem;
-  --font-size-4xl: 2.25rem;
-  --font-size-5xl: 3rem;
-  --font-size-6xl: 3.75rem;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
 }
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-text-primary);
-  font-family: var(--font-body);
-  font-size: var(--font-size-base);
-  font-weight: 400;
-  line-height: 1.7;
+  background: var(--bg);
+  color: var(--muted);
+  font-family: var(--font-sans);
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
 }
 
-/* Grain texture overlay — fixed, pointer-events-none, no scroll-container repaint cost */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 1;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  line-height: 1.1;
-  color: var(--color-text-primary);
-}
-
-p {
-  line-height: 1.8;
-  color: var(--color-text-secondary);
-}
-
-/* Section overline label — used sparingly (max 1 per 3 sections) */
-.section-label {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-text-tertiary);
-}
-
-/* Thin rule divider */
-.rule-accent {
-  height: 1px;
-  background: linear-gradient(
-    to right,
-    rgba(76, 124, 255, 0.5),
-    rgba(76, 124, 255, 0.15),
-    transparent
-  );
-  border: none;
-}
-
-.rule-subtle {
-  height: 1px;
-  background: rgba(255, 255, 255, 0.07);
-  border: none;
-}
-
-/* Primary button — solid accent, sharp corners */
-.btn-primary {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.75rem;
-  font-family: var(--font-body);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: #08090b;
-  background: var(--color-text-primary);
-  border: 1px solid var(--color-text-primary);
-  border-radius: 2px;
-  cursor: pointer;
-  transition:
-    transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-    background-color 0.2s ease,
-    border-color 0.2s ease;
-  white-space: nowrap;
-}
-
-.btn-primary:hover {
-  background: var(--color-accent);
-  border-color: var(--color-accent);
-  color: #ffffff;
-  transform: translateY(-1px);
-}
-
-.btn-primary:active {
-  transform: translateY(0) scale(0.98);
-}
-
-/* Secondary button — outlined, transparent */
-.btn-secondary {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.75rem;
-  font-family: var(--font-body);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  color: var(--color-text-primary);
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 2px;
-  cursor: pointer;
-  transition:
-    transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
-    border-color 0.2s ease,
-    color 0.2s ease;
-  white-space: nowrap;
-}
-
-.btn-secondary:hover {
-  border-color: var(--color-accent);
-  color: var(--color-accent-bright);
-  transform: translateY(-1px);
-}
-
-.btn-secondary:active {
-  transform: translateY(0) scale(0.98);
-}
-
-/* Card base — sharp corners, hairline border, tinted shadow */
-.card {
-  background: var(--color-surface);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 2px;
-  transition:
-    border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.card:hover {
-  border-color: rgba(76, 124, 255, 0.35);
-  transform: translateY(-3px);
-  box-shadow: 0 24px 48px -24px rgba(2, 4, 12, 0.65);
-}
-
-/* Nav glass — thin translucent bar only, not used on content cards */
-.glass-effect {
-  background: rgba(10, 10, 12, 0.85);
-  backdrop-filter: blur(16px) saturate(140%);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--color-background);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.14);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(76, 124, 255, 0.4);
-}
-
-/* Selection */
 ::selection {
-  background: rgba(76, 124, 255, 0.28);
-  color: var(--color-text-primary);
+  background: var(--tag);
+  color: var(--fg);
 }
 
-.container {
-  @media only screen and (max-width: 400px) {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
-/* Work page back link */
-.project-back-link {
-  color: var(--color-text-secondary);
-  font-family: var(--font-mono);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+/* Inline links inside prose */
+.prose-link {
+  color: var(--fg);
   font-weight: 500;
-  font-size: 0.75rem;
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.15s ease, color 0.15s ease;
 }
 
-.project-back-link:hover {
-  color: var(--color-accent-bright);
+.prose-link:hover {
+  color: var(--accent);
+  text-decoration-color: currentColor;
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   *,
   *::before,
   *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
   }
 }
