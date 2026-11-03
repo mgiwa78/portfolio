@@ -37,10 +37,10 @@ export default function Home() {
       <div className="lg:flex lg:justify-between lg:gap-4">
         <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[46%] lg:flex-col lg:justify-between lg:py-24">
           <div>
-            <h1 className="text-name text-4xl font-semibold tracking-tight sm:text-5xl">
+            <h1 className="text-5xl font-bold tracking-tight text-fg sm:text-6xl">
               <Link href="/">{profile.name}</Link>
             </h1>
-            <p className="mt-3 text-lg font-medium tracking-tight text-fg sm:text-xl">{profile.title}</p>
+            <p className="mt-4 inline-block rounded bg-fill px-2.5 py-1 text-lg font-semibold tracking-tight text-white sm:text-xl">{profile.title}</p>
             <p className="mt-4 max-w-sm leading-normal">{profile.tagline}</p>
             <SectionNav />
           </div>
@@ -109,7 +109,7 @@ export default function Home() {
                 <li key={`${role.company}-${role.dates}`} className="mb-12">
                   <div className={rowDim}>
                     <div className={rowHover} />
-                    <p className="z-10 mb-2 mt-1 font-mono text-xs uppercase tracking-wide text-accent-2 sm:col-span-2">
+                    <p className="z-10 mb-2 mt-1 font-mono text-xs uppercase tracking-wide text-subtle sm:col-span-2">
                       {role.dates}
                     </p>
                     <div className="z-10 sm:col-span-6">
@@ -141,7 +141,7 @@ export default function Home() {
               href={profile.resume}
               target="_blank"
               rel="noopener noreferrer"
-              className="group/link mt-6 inline-flex items-center font-medium text-fg hover:text-accent"
+              className="group/link mt-6 inline-flex items-center rounded-full bg-fill px-5 py-2.5 text-sm font-medium text-white transition-[filter] duration-150 hover:brightness-125"
             >
               View full resume
               <ArrowUpRight
@@ -161,7 +161,7 @@ export default function Home() {
                 <li key={project.slug} className="mb-12">
                   <div className={rowDim}>
                     <div className={rowHover} />
-                    <p className="z-10 mb-2 mt-1 font-mono text-xs uppercase tracking-wide text-accent-2 sm:col-span-2">
+                    <p className="z-10 mb-2 mt-1 font-mono text-xs uppercase tracking-wide text-subtle sm:col-span-2">
                       {project.year}
                     </p>
                     <div className="z-10 sm:col-span-6">
@@ -190,7 +190,7 @@ export default function Home() {
             </ol>
             <Link
               href="/work"
-              className="group/link inline-flex items-center font-medium text-fg hover:text-accent"
+              className="group/link inline-flex items-center rounded-full bg-fill px-5 py-2.5 text-sm font-medium text-white transition-[filter] duration-150 hover:brightness-125"
             >
               View all {projects.length} projects
               <ArrowRight

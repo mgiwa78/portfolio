@@ -4,7 +4,7 @@ export default function Tags({ items, label = "Technologies" }: { items: string[
       {items.map((item) => (
         <li
           key={item}
-          className="rounded-full bg-tag px-2.5 py-0.5 font-mono text-[11px] leading-5 text-accent-2"
+          className="rounded-full bg-tag px-2.5 py-0.5 font-mono text-[11px] leading-5 text-accent"
         >
           {item}
         </li>

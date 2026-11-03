@@ -1,40 +1,33 @@
 @import "tailwindcss";
 
-/* Saturated indigo with hot pink and electric blue. Pink marks interaction, blue marks data. */
+/* Two colours: onyx and electric indigo. Flat, no gradients. --fill is the solid brand colour;
+   --accent is the same hue, tuned to stay readable as text on the current background. */
 :root {
   color-scheme: light dark;
-  --bg: #fbfaff;
-  --fg: #14123a;
-  --muted: #44446e;
-  --subtle: #5f5f8c;
-  --border: #e4e0f7;
-  --hover: rgba(214, 23, 95, 0.05);
-  --hover-border: rgba(214, 23, 95, 0.32);
-  --tag: rgba(11, 95, 214, 0.1);
-  --accent: #d6175f;
-  --accent-2: #0b5fd6;
-  --spot: rgba(214, 23, 95, 0.08);
-  --glow-a: rgba(11, 95, 214, 0.13);
-  --glow-b: rgba(214, 23, 95, 0.11);
-  --name: linear-gradient(100deg, #d6175f 0%, #7a2fe0 55%, #0b5fd6 100%);
+  --bg: #fdfdfe;
+  --fg: #01010d;
+  --muted: #3d3d4d;
+  --subtle: #62627a;
+  --border: #e6e6ee;
+  --hover: rgba(99, 49, 251, 0.06);
+  --hover-border: #6331fb;
+  --tag: rgba(99, 49, 251, 0.1);
+  --accent: #6331fb;
+  --fill: #6331fb;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0c0e2e;
-    --fg: #f5f6ff;
-    --muted: #c3c7ea;
-    --subtle: #9499cc;
-    --border: #272b63;
-    --hover: rgba(255, 93, 143, 0.08);
-    --hover-border: rgba(255, 93, 143, 0.45);
-    --tag: rgba(76, 201, 255, 0.13);
-    --accent: #ff5d8f;
-    --accent-2: #4cc9ff;
-    --spot: rgba(255, 93, 143, 0.14);
-    --glow-a: rgba(58, 91, 255, 0.34);
-    --glow-b: rgba(255, 45, 125, 0.2);
-    --name: linear-gradient(100deg, #ff5d8f 0%, #b36bff 55%, #4cc9ff 100%);
+    --bg: #01010d;
+    --fg: #ffffff;
+    --muted: #c4c4d0;
+    --subtle: #8b8b9c;
+    --border: #1f1f2e;
+    --hover: rgba(99, 49, 251, 0.14);
+    --hover-border: #6331fb;
+    --tag: rgba(99, 49, 251, 0.24);
+    --accent: #a88bff;
+    --fill: #6331fb;
   }
 }
 
@@ -48,7 +41,7 @@
   --color-hover-border: var(--hover-border);
   --color-tag: var(--tag);
   --color-accent: var(--accent);
-  --color-accent-2: var(--accent-2);
+  --color-fill: var(--fill);
 
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
@@ -67,28 +60,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Ambient colour, always on, so the page isn't flat before anyone hovers. */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -20;
-  pointer-events: none;
-  background:
-    radial-gradient(60vw 60vh at 8% 0%, var(--glow-a), transparent 70%),
-    radial-gradient(55vw 60vh at 100% 100%, var(--glow-b), transparent 70%);
-}
-
-.text-name {
-  background: var(--name);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
 ::selection {
-  background: var(--hover-border);
-  color: var(--fg);
+  background: var(--fill);
+  color: #ffffff;
 }
 
 a:focus-visible,
@@ -103,7 +77,8 @@ button:focus-visible {
   color: var(--fg);
   font-weight: 500;
   text-decoration: underline;
-  text-decoration-color: var(--accent);
+  text-decoration-color: var(--fill);
+  text-decoration-thickness: 2px;
   text-underline-offset: 3px;
   transition: text-decoration-color 0.15s ease, color 0.15s ease;
 }

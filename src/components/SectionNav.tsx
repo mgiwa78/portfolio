@@ -37,13 +37,13 @@ export default function SectionNav() {
                 <span
                   className={`mr-4 h-0.5 transition-all duration-200 ${
                     isActive
-                      ? "w-16 bg-accent"
-                      : "w-8 bg-subtle group-hover:w-16 group-hover:bg-accent"
+                      ? "w-16 bg-fill"
+                      : "w-8 bg-subtle group-hover:w-16 group-hover:bg-fill"
                   }`}
                 />
                 <span
                   className={`font-mono text-xs uppercase tracking-widest transition-colors duration-200 ${
-                    isActive ? "text-accent" : "text-subtle group-hover:text-accent"
+                    isActive ? "text-fg" : "text-subtle group-hover:text-fg"
                   }`}
                 >
                   {label}

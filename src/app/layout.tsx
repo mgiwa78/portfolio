@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
-import Spotlight from "@/components/Spotlight";
 import "./globals.css";
 
 const description =
@@ -30,18 +29,15 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f6f8fb" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0f1c" },
+    { media: "(prefers-color-scheme: light)", color: "#fdfdfe" },
+    { media: "(prefers-color-scheme: dark)", color: "#01010d" },
   ],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body>
-        <Spotlight />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
