@@ -14,6 +14,7 @@
   --tag: rgba(99, 49, 251, 0.1);
   --accent: #6331fb;
   --fill: #6331fb;
+  --spot: rgba(99, 49, 251, 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -28,6 +29,7 @@
     --tag: rgba(99, 49, 251, 0.24);
     --accent: #a88bff;
     --fill: #6331fb;
+    --spot: rgba(99, 49, 251, 0.24);
   }
 }
 
