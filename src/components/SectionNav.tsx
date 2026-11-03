@@ -35,15 +35,15 @@ export default function SectionNav() {
             <li key={id}>
               <a href={`#${id}`} className="group flex items-center py-2.5">
                 <span
-                  className={`mr-4 h-px transition-all duration-200 ${
+                  className={`mr-4 h-0.5 transition-all duration-200 ${
                     isActive
-                      ? "w-16 bg-fg"
-                      : "w-8 bg-subtle group-hover:w-16 group-hover:bg-fg"
+                      ? "w-16 bg-accent"
+                      : "w-8 bg-subtle group-hover:w-16 group-hover:bg-accent"
                   }`}
                 />
                 <span
                   className={`font-mono text-xs uppercase tracking-widest transition-colors duration-200 ${
-                    isActive ? "text-fg" : "text-subtle group-hover:text-fg"
+                    isActive ? "text-accent" : "text-subtle group-hover:text-accent"
                   }`}
                 >
                   {label}

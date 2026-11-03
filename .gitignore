@@ -12,7 +12,7 @@
 
 # testing
 /coverage
-
+/brag-output
 # next.js
 /.next/
 /out/

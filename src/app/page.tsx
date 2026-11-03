@@ -17,10 +17,10 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
 }
 
 const rowHover =
-  "absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition-colors duration-200 motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-hover lg:group-hover:shadow-[inset_0_1px_0_0_var(--border)]";
+  "absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition-colors duration-200 motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-hover lg:group-hover:shadow-[inset_0_0_0_1px_var(--hover-border)]";
 
 const rowDim =
-  "group relative grid pb-1 transition-opacity duration-200 motion-reduce:transition-none sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50";
+  "row group relative grid pb-1 transition-opacity duration-200 motion-reduce:transition-none sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-has-[.row:hover]/list:opacity-60";
 
 export default function Home() {
   const featured = projects.filter((p) => p.featured);
@@ -37,7 +37,7 @@ export default function Home() {
       <div className="lg:flex lg:justify-between lg:gap-4">
         <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-[46%] lg:flex-col lg:justify-between lg:py-24">
           <div>
-            <h1 className="text-4xl font-semibold tracking-tight text-fg sm:text-5xl">
+            <h1 className="text-name text-4xl font-semibold tracking-tight sm:text-5xl">
               <Link href="/">{profile.name}</Link>
             </h1>
             <p className="mt-3 text-lg font-medium tracking-tight text-fg sm:text-xl">{profile.title}</p>
@@ -109,7 +109,7 @@ export default function Home() {
                 <li key={`${role.company}-${role.dates}`} className="mb-12">
                   <div className={rowDim}>
                     <div className={rowHover} />
-                    <p className="z-10 mb-2 mt-1 font-mono text-xs uppercase tracking-wide text-subtle sm:col-span-2">
+                    <p className="z-10 mb-2 mt-1 font-mono text-xs uppercase tracking-wide text-accent-2 sm:col-span-2">
                       {role.dates}
                     </p>
                     <div className="z-10 sm:col-span-6">
@@ -161,7 +161,7 @@ export default function Home() {
                 <li key={project.slug} className="mb-12">
                   <div className={rowDim}>
                     <div className={rowHover} />
-                    <p className="z-10 mb-2 mt-1 font-mono text-xs uppercase tracking-wide text-subtle sm:col-span-2">
+                    <p className="z-10 mb-2 mt-1 font-mono text-xs uppercase tracking-wide text-accent-2 sm:col-span-2">
                       {project.year}
                     </p>
                     <div className="z-10 sm:col-span-6">
@@ -177,7 +177,7 @@ export default function Home() {
                           width={1440}
                           height={900}
                           sizes="(min-width: 1024px) 420px, 100vw"
-                          className="mt-4 rounded-md border border-border"
+                          className="mt-4 rounded-md border border-border transition-colors duration-200 motion-reduce:transition-none lg:group-hover:border-hover-border"
                         />
                       )}
                       <div className="mt-3">

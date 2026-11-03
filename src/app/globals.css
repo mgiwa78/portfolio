@@ -1,27 +1,40 @@
 @import "tailwindcss";
 
+/* Saturated indigo with hot pink and electric blue. Pink marks interaction, blue marks data. */
 :root {
   color-scheme: light dark;
-  --bg: #fafafa;
-  --fg: #18181b;
-  --muted: #52525b;
-  --subtle: #71717a;
-  --border: #e4e4e7;
-  --hover: rgba(24, 24, 27, 0.035);
-  --tag: rgba(37, 99, 235, 0.08);
-  --accent: #1d4ed8;
+  --bg: #fbfaff;
+  --fg: #14123a;
+  --muted: #44446e;
+  --subtle: #5f5f8c;
+  --border: #e4e0f7;
+  --hover: rgba(214, 23, 95, 0.05);
+  --hover-border: rgba(214, 23, 95, 0.32);
+  --tag: rgba(11, 95, 214, 0.1);
+  --accent: #d6175f;
+  --accent-2: #0b5fd6;
+  --spot: rgba(214, 23, 95, 0.08);
+  --glow-a: rgba(11, 95, 214, 0.13);
+  --glow-b: rgba(214, 23, 95, 0.11);
+  --name: linear-gradient(100deg, #d6175f 0%, #7a2fe0 55%, #0b5fd6 100%);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0c0c0e;
-    --fg: #e7e7ea;
-    --muted: #a1a1aa;
-    --subtle: #82828c;
-    --border: #232327;
-    --hover: rgba(255, 255, 255, 0.035);
-    --tag: rgba(122, 162, 255, 0.12);
-    --accent: #7aa2ff;
+    --bg: #0c0e2e;
+    --fg: #f5f6ff;
+    --muted: #c3c7ea;
+    --subtle: #9499cc;
+    --border: #272b63;
+    --hover: rgba(255, 93, 143, 0.08);
+    --hover-border: rgba(255, 93, 143, 0.45);
+    --tag: rgba(76, 201, 255, 0.13);
+    --accent: #ff5d8f;
+    --accent-2: #4cc9ff;
+    --spot: rgba(255, 93, 143, 0.14);
+    --glow-a: rgba(58, 91, 255, 0.34);
+    --glow-b: rgba(255, 45, 125, 0.2);
+    --name: linear-gradient(100deg, #ff5d8f 0%, #b36bff 55%, #4cc9ff 100%);
   }
 }
 
@@ -32,8 +45,10 @@
   --color-subtle: var(--subtle);
   --color-border: var(--border);
   --color-hover: var(--hover);
+  --color-hover-border: var(--hover-border);
   --color-tag: var(--tag);
   --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
 
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", Menlo, monospace;
@@ -52,8 +67,27 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Ambient colour, always on, so the page isn't flat before anyone hovers. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -20;
+  pointer-events: none;
+  background:
+    radial-gradient(60vw 60vh at 8% 0%, var(--glow-a), transparent 70%),
+    radial-gradient(55vw 60vh at 100% 100%, var(--glow-b), transparent 70%);
+}
+
+.text-name {
+  background: var(--name);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 ::selection {
-  background: var(--tag);
+  background: var(--hover-border);
   color: var(--fg);
 }
 
@@ -69,7 +103,7 @@ button:focus-visible {
   color: var(--fg);
   font-weight: 500;
   text-decoration: underline;
-  text-decoration-color: var(--border);
+  text-decoration-color: var(--accent);
   text-underline-offset: 3px;
   transition: text-decoration-color 0.15s ease, color 0.15s ease;
 }

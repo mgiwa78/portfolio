@@ -17,7 +17,7 @@ export default function SocialLinks() {
             href={href}
             aria-label={label}
             title={label}
-            className="block text-subtle transition-colors duration-150 hover:text-fg"
+            className="block text-subtle transition-colors duration-150 hover:text-accent"
             {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
           >
             <Icon size={22} weight="regular" />
