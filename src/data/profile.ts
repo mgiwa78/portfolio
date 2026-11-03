@@ -1,7 +1,8 @@
 export const profile = {
   name: "Giwa Muhammad",
   title: "Senior Full-Stack Engineer",
-  tagline: "Founder & CTO at SmartEdu. I build SaaS products, marketplaces, and the payment systems underneath them.",
+  tagline:
+    "Founder & CTO at SmartEdu. I build SaaS products, mobile apps, marketplaces, and the payment systems underneath them.",
   location: "Nigeria, remote (GMT+1)",
   email: "mgiwa78@gmail.com",
   github: "https://github.com/mgiwa78",
@@ -31,6 +32,16 @@ export const experience: Role[] = [
     stack: ["Next.js", "Node.js", "PostgreSQL", "Redis", "BullMQ", "Paystack", "Turborepo"],
   },
   {
+    dates: "Sep 2026 - Present",
+    title: "Mobile & Full-Stack Engineer (Contract)",
+    company: "Neurapath",
+    href: "/work/neurapath",
+    note: "Contract, remote",
+    description:
+      "One of two engineers on a private messaging and voice-calling app. I build most of the React Native app (sign-in and onboarding, chat with voice notes, call screens, push notifications, and in-app subscriptions) and work on its Express API and admin dashboard.",
+    stack: ["React Native", "Expo", "Redux Toolkit", "Socket.io", "Firebase"],
+  },
+  {
     dates: "2026 - Present",
     title: "Sole Engineer (Contract)",
     company: "VerraEarth",
@@ -56,8 +67,18 @@ export const experience: Role[] = [
     company: "Nexlen Systems",
     note: "Remote, UK",
     description:
-      "Build and maintain production web applications across the frontend and the Node.js API layer. Migrated a legacy Laravel Blade codebase to a structured Vue.js frontend and cut redundant API calls along the way.",
-    stack: ["Vue.js", "Node.js", "TypeScript", "Laravel"],
+      "Web and mobile work on Nexlen's UK trades platform, where customers post jobs and tradespeople quote and manage the work. I'm the largest contributor to its Next.js web app and build features in its React Native app: project management, job billing, rate cards, client contact channels, and subscription-gated features. Earlier I migrated a legacy Laravel Blade frontend to Vue.js.",
+    stack: ["Next.js", "React Native", "Expo", "TypeScript", "Vue.js", "Laravel"],
+  },
+  {
+    dates: "Jul 2024 - Dec 2024",
+    title: "Frontend Engineer (Contract)",
+    company: "IDEAS Project",
+    href: "/work/ideas-mis",
+    note: "Federal Government contract",
+    description:
+      "Built the React frontend for the grant and learning management system of a World Bank-supported skills program under Nigeria's Federal Ministry of Education: grant applications and approval, learner enrollment across states, online courses, progress monitoring, and certificates.",
+    stack: ["React", "Vite", "React Router"],
   },
   {
     dates: "Jun 2024 - Apr 2025",
@@ -66,6 +87,14 @@ export const experience: Role[] = [
     description:
       "Led architecture and backend development for web and mobile clients. Designed the schema and Node.js API from scratch, added Redis caching and background job processing, and ran containerized production releases.",
     stack: ["Node.js", "PostgreSQL", "Redis", "Docker", "React"],
+  },
+  {
+    dates: "May 2024 - Oct 2024",
+    title: "Full-Stack Engineer",
+    company: "Alphatrol Limited",
+    description:
+      "Owned Guardtrol, a real-time multi-location monitoring platform, across its Flutter mobile app, Node.js backend, and React web dashboard. Migrated the legacy JavaScript codebase to TypeScript and set up the CI/CD pipelines that deployed it.",
+    stack: ["Flutter", "TypeScript", "Node.js", "Express", "React", "MongoDB", "MySQL"],
   },
   {
     dates: "Mar 2024 - Jul 2024",
@@ -84,6 +113,34 @@ export const experience: Role[] = [
     description:
       "Scaled a Laravel learning-management system for a government organization running multiple centers, and redesigned the schema to support new roles and institutional structure.",
     stack: ["Laravel", "PHP", "MySQL"],
+  },
+  {
+    dates: "May 2023 - Nov 2023",
+    title: "Full-Stack Web Engineer",
+    company: "Bariansystems",
+    note: "Abuja",
+    description:
+      "Led frontend development on a large-scale project in Vue.js, with Laravel APIs and MySQL on the backend. Turned Figma designs into Vue.js and Laravel UI components and took part in code reviews.",
+    stack: ["Vue.js", "Laravel", "MySQL", "Figma"],
+  },
+  {
+    dates: "Aug 2022 - Jun 2023",
+    title: "Frontend Developer (Internship)",
+    company: "Innovative Global Solutions (IGS)",
+    note: "Abuja",
+    description:
+      "Built a clinic management system in PHP and Bootstrap 5 for patient and clinic operations, including its MySQL schema.",
+    stack: ["PHP", "Bootstrap 5", "MySQL", "JavaScript"],
+  },
+  {
+    dates: "Feb 2021 - May 2022",
+    title: "Full-Stack Developer (Contract)",
+    company: "Amron Global Services",
+    href: "/work/amron",
+    note: "Contract, remote",
+    description:
+      "Built a custom real estate management application for property and payment management. Amron hired me again in 2026 to build its current platform.",
+    stack: ["PHP", "JavaScript", "MySQL", "Bootstrap 5"],
   },
 ];
 

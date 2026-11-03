@@ -56,8 +56,9 @@ export default function Home() {
             <SectionHeading>About</SectionHeading>
             <div className="space-y-4">
               <p>
-                I&apos;m a full-stack engineer working remotely from Nigeria. I build SaaS products, marketplaces,
-                and the payment systems underneath them, usually as the engineer responsible for the whole thing,
+                I&apos;m a full-stack engineer working remotely from Nigeria, with more than five years of experience.
+                I build SaaS products, mobile apps,
+                marketplaces, and the payment systems underneath them, usually as the engineer responsible for the whole thing,
                 from the database schema to the deploy pipeline. I&apos;ve shipped five platforms to production,
                 most of them as the only engineer.
               </p>
@@ -67,11 +68,16 @@ export default function Home() {
                   SmartEdu
                 </a>
                 , a school-management platform built for schools across Africa. I&apos;m also a full-stack engineer at
-                Nexlen Systems, a UK-based company, and the only engineer on{" "}
+                Nexlen Systems, a UK-based company, working on the Next.js and React Native apps for its trades
+                platform, and the only engineer on{" "}
                 <Link className="prose-link" href="/work/verraearth">
                   VerraEarth
                 </Link>
-                , a marketplace with Stripe Connect payouts and escrow. Before that I led engineering on{" "}
+                , a marketplace with Stripe Connect payouts and escrow. On mobile, I build the React Native app for{" "}
+                <Link className="prose-link" href="/work/neurapath">
+                  Neurapath
+                </Link>
+                , a private messaging and calling app. Before that I led engineering on{" "}
                 <Link className="prose-link" href="/work/fairchild">
                   FairChild Institute&apos;s
                 </Link>{" "}
@@ -82,10 +88,11 @@ export default function Home() {
                 , a San Francisco freight startup, and led backend architecture at Raffles Energies.
               </p>
               <p>
-                Most of my work is TypeScript: Next.js and React on the front end, Node.js on the back, PostgreSQL and
-                Redis underneath, and Go where it fits. I do my best work on problems that involve money or many
-                tenants: escrow and split payments, billing, background jobs, and keeping one customer&apos;s data away
-                from another&apos;s.
+                Most of my work is TypeScript: Next.js and React on the web, React Native and Expo on mobile (Flutter
+                before that), Node.js on the back, PostgreSQL and Redis underneath, and Go where it fits. I write the
+                tests too, including a 373-test Playwright suite for SmartEdu. I do my best work on problems that
+                involve money or many tenants: escrow and split payments, billing, background jobs, and keeping one
+                customer&apos;s data away from another&apos;s.
               </p>
             </div>
           </section>

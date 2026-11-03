@@ -4,7 +4,7 @@ import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
 const description =
-  "Senior full-stack engineer and Founder & CTO at SmartEdu. SaaS, marketplaces, and payments infrastructure in TypeScript, Node.js, and Go.";
+  "Senior full-stack engineer and Founder & CTO at SmartEdu. SaaS, mobile apps, marketplaces, and payments infrastructure in TypeScript, React Native, Node.js, and Go.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://mgiwa.vercel.app"),

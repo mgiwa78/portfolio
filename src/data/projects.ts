@@ -35,12 +35,38 @@ export const projects: Project[] = [
       "Fee structures, invoices, installment plans, and Paystack collection, with a platform revenue share on each transaction",
       "Staff roles and permissions, payroll, leave, and hostel, transport, clinic, and library modules",
       "Separate portals for staff, teachers, parents, and students, built mobile-first for low-bandwidth connections",
+      "373 Playwright end-to-end tests across all four portals and the backoffice, including a cross-role permission matrix, plus 120 unit tests on money math, payment-gateway signatures, and the grading engine",
     ],
     status:
       "Live at smartedu.ng, with separate staging and production environments and CI/CD on every push. I also run onboarding and go-to-market.",
-    stack: ["Next.js", "Node.js", "TypeScript", "PostgreSQL", "Redis", "BullMQ", "Socket.io", "Paystack", "Turborepo"],
+    stack: ["Next.js", "Node.js", "TypeScript", "PostgreSQL", "Redis", "BullMQ", "Socket.io", "Paystack", "Playwright", "Turborepo"],
     links: [{ label: "smartedu.ng", href: "https://smartedu.ng" }],
     image: "/projects/smartedu.png",
+  },
+  {
+    slug: "neurapath",
+    title: "Neurapath",
+    year: "2026",
+    role: "Mobile and full-stack engineer (contract)",
+    featured: true,
+    summary: "Private messaging and voice-calling app in React Native.",
+    description:
+      "A paid messaging app built around privacy: encrypted messages and voice calls that expire on a schedule, with no phone number needed. I'm one of two engineers, working mostly on the React Native app.",
+    context:
+      "Neurapath sells privacy, so the app has to feel trustworthy at every step: sign-up without a phone number, messages that delete themselves, calls that connect reliably, and a subscription that works the same on iOS and Android.",
+    built:
+      "The app is React Native on Expo SDK 58 with Expo Router, Redux Toolkit and RTK Query for state and API calls, and NativeWind for styling. Realtime updates come over Socket.io, push notifications through Firebase Cloud Messaging, in-app purchases through expo-iap, and tokens live in secure storage. The API is Express.",
+    details: [
+      "Sign-in and onboarding: email, one-time code, ID reveal, profile setup, and the subscription paywall",
+      "Chat with recorded voice notes, and incoming and outgoing call screens with call tones",
+      "Moved the app's state to Redux Toolkit with RTK Query API slices",
+      "In-app subscriptions with a mock billing mode, so purchase and restore flows can be tested without the app stores",
+      "Also worked on the API, the admin dashboard, and the marketing site's GitHub Actions deployment",
+    ],
+    status: "In active development. The marketing site is live at oneneurapath.com.",
+    stack: ["React Native", "Expo", "Expo Router", "Redux Toolkit", "NativeWind", "Socket.io", "Firebase", "Express"],
+    links: [{ label: "oneneurapath.com", href: "https://oneneurapath.com" }],
+    image: "/projects/neurapath.png",
   },
   {
     slug: "verraearth",
@@ -60,6 +86,7 @@ export const projects: Project[] = [
       "Vendor application and admin review queue that gates who can open a storefront",
       "Customer-vendor messaging, disputes with attachments, and support tickets",
       "Role-based permissions, audit logs, and a maintenance mode with admin bypass",
+      "34 Jest unit tests on platform fees, discount rules and time windows, vendor visibility, and validation",
     ],
     status: "Ongoing contract. I'm the only engineer on it; the commerce, payout, and moderation loop is complete.",
     stack: ["Next.js", "Redux Toolkit", "Node.js", "TypeORM", "PostgreSQL", "Stripe Connect", "BullMQ", "Socket.io"],
@@ -82,6 +109,7 @@ export const projects: Project[] = [
       "Enrollment, course applications, and a Stripe-backed student wallet",
       "A separate support portal with ticketing and a knowledge base",
       "Hardening: TOTP two-factor auth, rate limiting, Helmet, and input sanitization",
+      "Jest set up with coverage reporting, with unit tests on the academic grading logic",
     ],
     status:
       "Shipped to dev, staging, and production with Docker, Nginx, GitHub Actions, automated backups, and Prometheus, Grafana, and Loki monitoring. My contract ended in July 2026.",
@@ -116,7 +144,6 @@ export const projects: Project[] = [
     slug: "stackmsp",
     title: "StackMSP",
     role: "Architect and engineer",
-    featured: true,
     summary: "Microservice SaaS that automates employee onboarding and offboarding for MSPs.",
     description:
       "A multi-tenant platform for managed service providers that automates onboarding and offboarding across RMM, PSA, identity, HR, and endpoint-management tools.",
@@ -132,6 +159,28 @@ export const projects: Project[] = [
     ],
     status: "Architecture project, designed for horizontal scaling and tenant isolation.",
     stack: ["Node.js", "Go", "RabbitMQ", "Redis", "PostgreSQL", "Docker", "Kubernetes"],
+  },
+  {
+    slug: "tranche",
+    title: "Tranche",
+    year: "2026",
+    role: "Sole engineer",
+    summary: "Buy-now-pay-later platform: shopper app, merchant dashboard, and payments engine.",
+    description:
+      "Shoppers buy now and pay in four installments; merchants get paid and see their orders. I built the whole thing: an Expo shopper app, a NestJS payments engine, and a Next.js merchant dashboard and staff console.",
+    context:
+      "Buy-now-pay-later is mostly a scheduling and money-movement problem. Every order turns into a set of installments that have to be charged on time, reminded before they're due, and reconciled exactly, without the app and the server ever disagreeing about what's owed.",
+    built:
+      "A Turborepo with one shared contract package: TypeScript types, Zod schemas, and the installment-schedule and naira-formatting functions, used by the app, the web, and the API so they compute the same numbers. The NestJS API records money in a double-entry ledger, charges saved cards through Paystack, and schedules payment reminders on BullMQ. The Expo app opens Paystack's hosted checkout in an in-app browser session and returns through a deep link.",
+    details: [
+      "Shopper app: catalog, pay-in-four plan picker with schedule preview, checkout, installment timeline, and early payment",
+      "Push reminders before each installment is due, through Expo notifications",
+      "Double-entry ledger in the payments engine, with Paystack for card charges and BullMQ for scheduled jobs",
+      "Next.js merchant dashboard, staff console, and marketing site sharing the same contract package",
+      "Docker images, a Render blueprint, and CI/CD for deployment",
+    ],
+    status: "Built end to end, with Docker and a Render blueprint configured for deployment.",
+    stack: ["Expo", "React Native", "Redux Toolkit", "NestJS", "PostgreSQL", "BullMQ", "Paystack", "Next.js", "Turborepo"],
   },
   {
     slug: "qiblacore",
@@ -185,7 +234,7 @@ export const projects: Project[] = [
     description:
       "An admin console and API for Amron Global Services: property, plot, and project records, client allocations, and the content that powers the public sites.",
     context:
-      "Amron manages construction projects, real estate developments, and client allocations across a growing portfolio. That work was being coordinated through spreadsheets and handoffs between teams.",
+      "This is my second system for Amron. In 2021 I built them a PHP application for property and payment management. By 2026 the business covered construction projects, real estate developments, and client allocations across a larger portfolio, and it needed one platform that could also power its public sites.",
     built:
       "A React and Vite admin console using TanStack Query and Table and Radix UI, on a Node.js and TypeORM API. The same API serves the public marketing site and the PalmHeights brand site.",
     details: [
@@ -221,23 +270,49 @@ export const projects: Project[] = [
   {
     slug: "skorlar",
     title: "Skorlar",
-    role: "Full-stack engineer",
+    year: "2023 - 2024",
+    role: "Sole engineer",
     summary: "Collaboration platform for academic research supervision.",
     description:
-      "One workspace for supervisors and students to manage research projects: milestones, documents, and feedback in one place instead of email threads.",
+      "One workspace for supervisors and students to manage research projects: milestones, documents, and feedback in one place instead of email threads. I built all of it, from the API to the deployment.",
     context:
       "Academic supervision ran on email threads and printed drafts. There was no shared view of progress, and a supervisor with more than a few students lost track quickly.",
     built:
-      "Next.js and Node.js on PostgreSQL, with JWT authentication and role-based access for supervisors and students, containerized with Docker and deployed through CI/CD.",
+      "A Next.js frontend on the App Router and a Node.js and Express REST API on MongoDB, with JWT authentication and separate supervisor and student roles. I set up the server infrastructure with Docker, Docker Compose, and CI/CD pipelines to serve more than one frontend.",
     details: [
-      "Real-time messaging between supervisors and students",
+      "Real-time communication between supervisors and students",
       "Milestone-based progress tracking",
       "Document management with version history",
-      "Role-based access for supervisors and students",
+      "REST APIs for user management, secured with JWT and role-based access",
+      "UI components refactored over several iterations as supervisors' needs changed",
     ],
-    status: "Used across dozens of academic projects.",
-    stack: ["Next.js", "Node.js", "PostgreSQL", "Docker"],
+    status: "Built between September 2023 and March 2024, and used across dozens of academic projects.",
+    stack: ["Next.js", "Node.js", "Express", "MongoDB", "JWT", "Docker", "CI/CD"],
   },
+  {
+    slug: "ideas-mis",
+    title: "IDEAS Project MIS",
+    year: "2024",
+    role: "Frontend engineer (government contract)",
+    summary: "Grant and learning management system for a World Bank-supported skills program.",
+    description:
+      "A Federal Government system for the IDEAS Project, a World Bank-supported skills program under Nigeria's Federal Ministry of Education. Training bodies apply for grants on behalf of learners, learners across Nigerian states enroll and study online, and they finish with a certificate. I built the frontend over six months in 2024.",
+    context:
+      "The program funds skills training at scale, which means two pipelines in one system: grant applications from training bodies that have to be reviewed and approved, and learners from across the country who need to enroll, study, and be monitored until they finish. Each step has its own staff, from admins to enrollment officers.",
+    built:
+      "A React single-page app built with Vite and React Router, with role-based views for each type of staff and for learners. It covers the whole flow, from grant application through approval, enrollment, online coursework, progress monitoring, and certification.",
+    details: [
+      "Grant applications submitted by training bodies on behalf of learners, then reviewed and approved",
+      "Learner applications from across Nigerian states into specific skill-acquisition programs",
+      "Online curriculum delivery, with learning progress monitored by staff",
+      "Certificates issued to learners who complete their programs",
+      "Role-based dashboards for admins, enrollment officers, and other staff",
+    ],
+    status: "Live at mis-webv2.ideasprojectng.com (sign-in required).",
+    stack: ["React", "Vite", "React Router"],
+    links: [{ label: "mis-webv2.ideasprojectng.com", href: "https://mis-webv2.ideasprojectng.com/auth/login" }],
+  },
+
 ];
 
 export function getProject(slug: string) {
