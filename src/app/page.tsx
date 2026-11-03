@@ -56,17 +56,22 @@ export default function Home() {
             <SectionHeading>About</SectionHeading>
             <div className="space-y-4">
               <p>
-                I&apos;m a full-stack engineer working remotely from Nigeria. For the past five years I&apos;ve
-                built SaaS products, marketplaces, and the payment systems underneath them, usually as the engineer
-                responsible for the whole thing, from the database schema to the deploy pipeline.
+                I&apos;m a full-stack engineer working remotely from Nigeria. I build SaaS products, marketplaces,
+                and the payment systems underneath them, usually as the engineer responsible for the whole thing,
+                from the database schema to the deploy pipeline. I&apos;ve shipped five platforms to production,
+                most of them as the only engineer.
               </p>
               <p>
                 Right now I&apos;m Founder and CTO at{" "}
                 <a className="prose-link" href="https://smartedu.ng" target="_blank" rel="noopener noreferrer">
                   SmartEdu
                 </a>
-                , a school-management platform built for schools across Africa, and a full-stack engineer at Nexlen
-                Systems, a UK-based company. Before that I led engineering on{" "}
+                , a school-management platform built for schools across Africa. I&apos;m also a full-stack engineer at
+                Nexlen Systems, a UK-based company, and the only engineer on{" "}
+                <Link className="prose-link" href="/work/verraearth">
+                  VerraEarth
+                </Link>
+                , a marketplace with Stripe Connect payouts and escrow. Before that I led engineering on{" "}
                 <Link className="prose-link" href="/work/fairchild">
                   FairChild Institute&apos;s
                 </Link>{" "}
