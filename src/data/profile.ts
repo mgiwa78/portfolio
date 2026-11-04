@@ -52,6 +52,36 @@ export const experience: Role[] = [
     stack: ["Next.js", "Node.js", "TypeORM", "PostgreSQL", "Stripe Connect", "BullMQ"],
   },
   {
+    dates: "Jun 2025 - Present",
+    title: "Sole Engineer (Contract)",
+    company: "StackMSP",
+    href: "/work/stackmsp",
+    note: "Contract, remote",
+    description:
+      "Building the live MSP platform at stackmsp.com: tenant and customer portals, a Node.js and TypeORM API, Stripe billing, QuickBooks, and a Go Windows RMM agent with signed jobs and patch management. I am the only engineer on it.",
+    stack: ["React", "Node.js", "TypeORM", "MySQL", "Go", "Redis", "Stripe"],
+  },
+  {
+    dates: "2026",
+    title: "Sole Engineer (Contract)",
+    company: "TruckPayPro",
+    href: "/work/truckpaypro",
+    note: "Contract, remote",
+    description:
+      "Built a trucking payroll and dispatch platform: settlements from dispatched loads, per-company isolation for multi-carrier dispatchers, Stripe subscriptions, and QuickBooks, Motive, and DAT integrations. Live at truckpaypro.com.",
+    stack: ["React", "Redux Toolkit", "Stripe", "QuickBooks", "Railway"],
+  },
+  {
+    dates: "2026",
+    title: "Sole Engineer (Contract)",
+    company: "JanitorIQ",
+    href: "/work/janitoriq",
+    note: "Contract, remote",
+    description:
+      "Built an operations platform for cleaning companies: crew scheduling, GPS time tracking, digital checklists, invoicing, and QuickBooks/Wave sync, with Stripe billing. Live at janitoriq.com.",
+    stack: ["React", "Redux Toolkit", "MongoDB", "Stripe", "QuickBooks", "Socket.io"],
+  },
+  {
     dates: "Oct 2025 - Jul 2026",
     title: "Lead Engineer (Contract)",
     company: "FairChild Institute",

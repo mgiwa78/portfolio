@@ -92,6 +92,78 @@ export const projects: Project[] = [
     stack: ["Next.js", "Redux Toolkit", "Node.js", "TypeORM", "PostgreSQL", "Stripe Connect", "BullMQ", "Socket.io"],
   },
   {
+    slug: "stackmsp",
+    title: "StackMSP",
+    year: "2025 - Present",
+    role: "Sole engineer (contract)",
+    featured: true,
+    summary: "Multi-tenant MSP platform: PSA, RMM agent, billing, and a signed Windows patch-management agent.",
+    description:
+      "A live platform for managed service providers. Each MSP gets a subdomain for clients, contracts, invoices, proposals, support, and device management, with a Go Windows agent that checks in, runs jobs, and installs patches.",
+    context:
+      "MSPs were running client management, billing, and endpoint work across disconnected tools. Onboarding a client or a device meant repeating the same steps in every system, with no shared view of contracts, invoices, or the machines under management.",
+    built:
+      "A Node.js, Express, and TypeORM API on MySQL, with Redis and BullMQ for background work and Socket.io for live updates. The tenant and customer portals are React 19 and Vite with Redux Toolkit; the marketing site is Next.js. The RMM agent is Go: it enrolls a Windows machine, signs every request, runs jobs, and reports Windows Update state. Stripe handles subscriptions; QuickBooks is connected over OAuth with tokens encrypted at rest.",
+    details: [
+      "Subdomain-per-tenant PSA: clients, contracts, invoices, proposals, a customer portal, and a platform admin console",
+      "Go Windows agent with per-request RSA signatures, signed jobs, and Windows Update scan and install, including a patch-policy and audit trail",
+      "Workflows for onboarding and offboarding, a script catalog tenants can clone, and Ingram Micro product sync",
+      "Stripe billing, QuickBooks OAuth, tenant-scoped RBAC, and a 170-test API suite covering auth, tenancy, and agent signing",
+    ],
+    status: "Live at stackmsp.com. Ongoing contract; I am the only engineer across the API, portals, landing site, and agent.",
+    stack: ["React", "Vite", "Redux Toolkit", "Node.js", "TypeORM", "MySQL", "Go", "Redis", "BullMQ", "Stripe", "Docker"],
+    links: [{ label: "stackmsp.com", href: "https://stackmsp.com" }],
+    image: "/projects/stackmsp.png",
+  },
+  {
+    slug: "truckpaypro",
+    title: "TruckPayPro",
+    year: "2026",
+    role: "Sole engineer (contract)",
+    featured: true,
+    summary: "Trucking payroll and dispatch: settlements from loads, multi-company isolation, QuickBooks and Stripe.",
+    description:
+      "A payroll and dispatch platform for small fleets and multi-company dispatchers. Driver pay is calculated from dispatched loads, deductions, and reimbursements, then synced to QuickBooks. Dispatchers who run more than one carrier get isolated company workspaces under one parent billing account.",
+    context:
+      "Friday settlements were a spreadsheet job: loads in one place, fuel and advances in another, QuickBooks somewhere else. Dispatchers serving several carriers also needed those books kept apart without running a separate product for each company.",
+    built:
+      "A React app with Redux Toolkit against a Railway-hosted API. Checkout and subscriptions go through Stripe. QuickBooks Online connects over OAuth so completed loads become invoices and expenses push to the right accounts. Motive (and Samsara) pull GPS and fleet data; DAT loads can be saved into the dispatch inbox. Each Dispatcher Pro child company has its own drivers, loads, payroll, and integrations.",
+    details: [
+      "Settlement engine: unpaid loads, per diem, reimbursements, and custom deductions into net pay and year-to-date statements",
+      "Dispatcher Pro: parent billing, a company switcher, and per-company isolation for loads, payroll, inventory, and integrations",
+      "Dispatch kanban from assign through delivery, a driver portal, DVIR, and broker/invoice tracking",
+      "Stripe subscriptions, QuickBooks Online sync, Motive/Samsara GPS, and DAT load-board import",
+    ],
+    status: "Live at truckpaypro.com, with a driver portal and Dispatcher Pro multi-company accounts.",
+    stack: ["React", "Redux Toolkit", "Stripe", "QuickBooks", "Railway"],
+    links: [{ label: "truckpaypro.com", href: "https://truckpaypro.com" }],
+    image: "/projects/truckpaypro.png",
+  },
+  {
+    slug: "janitoriq",
+    title: "JanitorIQ",
+    year: "2026",
+    role: "Sole engineer (contract)",
+    featured: true,
+    summary: "Operations SaaS for cleaning companies: scheduling, GPS time tracking, invoicing, and QuickBooks.",
+    description:
+      "A platform for janitorial businesses to schedule crews, clock in with GPS, run digital checklists, invoice clients, and sync the books to QuickBooks or Wave. Stripe bills the product itself.",
+    context:
+      "Cleaning companies were running jobs on sticky notes, texts, and spreadsheets: who is on site, whether the checklist was done, and whether the invoice had gone out were three different conversations. Off-the-shelf tools were either too generic or too expensive for a small crew.",
+    built:
+      "A React app with Redux Toolkit, React Router, and maps for job sites, talking to a Railway-hosted API on MongoDB. Socket.io carries in-app team messaging. Subscriptions and payments go through Stripe; clients, invoices, and payments sync to QuickBooks Online and Wave.",
+    details: [
+      "Drag-and-drop scheduling, recurring jobs, and role-based access for admins, managers, and field staff",
+      "GPS-verified clock-in/out, digital checklists and inspections, and in-app crew messaging",
+      "Quotes, invoices, and payroll tools in one workspace, with QuickBooks Online and Wave sync",
+      "Stripe-billed Core plan (per-seat after six users) and a mobile-ready field view for cleaners",
+    ],
+    status: "Live at janitoriq.com. The native App Store and Play listings were still in progress at last check.",
+    stack: ["React", "Redux Toolkit", "MongoDB", "Stripe", "QuickBooks", "Socket.io", "Railway"],
+    links: [{ label: "janitoriq.com", href: "https://janitoriq.com" }],
+    image: "/projects/janitoriq.png",
+  },
+  {
     slug: "fairchild",
     title: "FairChild",
     year: "2025 - 2026",
@@ -139,26 +211,6 @@ export const projects: Project[] = [
     stack: ["React", "Node.js", "Express", "MySQL", "Stripe"],
     links: [{ label: "tegyinc.com", href: "https://tegyinc.com" }],
     image: "/projects/tegy-inc.png",
-  },
-  {
-    slug: "stackmsp",
-    title: "StackMSP",
-    role: "Architect and engineer",
-    summary: "Microservice SaaS that automates employee onboarding and offboarding for MSPs.",
-    description:
-      "A multi-tenant platform for managed service providers that automates onboarding and offboarding across RMM, PSA, identity, HR, and endpoint-management tools.",
-    context:
-      "MSPs onboard and offboard their clients' employees across half a dozen disconnected systems by hand. Every hire or termination meant repeating the same steps in every tool, for every client.",
-    built:
-      "Independent services in Node.js and Go, each with its own PostgreSQL database. Services talk over RabbitMQ events rather than shared tables, Redis holds live workflow state and caches, and tenant-scoped RBAC with JWT is enforced at every service boundary. Everything runs in Docker and is designed to scale horizontally on Kubernetes.",
-    details: [
-      "Database per service, with no shared schema between services",
-      "Event-driven orchestration over RabbitMQ across RMM, PSA, IAM, HR, and endpoint integrations",
-      "Tenant-scoped RBAC and JWT checks enforced independently in each service",
-      "Redis-backed workflow state for long-running onboarding and offboarding runs",
-    ],
-    status: "Architecture project, designed for horizontal scaling and tenant isolation.",
-    stack: ["Node.js", "Go", "RabbitMQ", "Redis", "PostgreSQL", "Docker", "Kubernetes"],
   },
   {
     slug: "tranche",

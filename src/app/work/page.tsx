@@ -6,7 +6,7 @@ import { profile } from "@/data/profile";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "Every project on this site: SaaS platforms, marketplaces, an institutional LMS, and the infrastructure under them.",
+  description: "Every project on this site: SaaS platforms, marketplaces, an institutional LMS, MSP and field-ops products, and the infrastructure under them.",
 };
 
 export default function WorkArchive() {
@@ -15,7 +15,7 @@ export default function WorkArchive() {
       <BackLink href="/">{profile.name}</BackLink>
       <h1 className="mt-4 text-4xl font-semibold tracking-tight text-fg sm:text-5xl">All projects</h1>
       <p className="mt-3 max-w-xl">
-        Client work, my own products, and architecture projects. Most were built solo, schema to deployment.
+        Client contracts, my own products, and the platforms underneath them. Most were built solo, schema to deployment.
       </p>
 
       <table className="mt-12 w-full border-collapse text-left">

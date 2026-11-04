@@ -59,8 +59,8 @@ export default function Home() {
                 I&apos;m a full-stack engineer working remotely from Nigeria, with more than five years of experience.
                 I build SaaS products, mobile apps,
                 marketplaces, and the payment systems underneath them, usually as the engineer responsible for the whole thing,
-                from the database schema to the deploy pipeline. I&apos;ve shipped five platforms to production,
-                most of them as the only engineer.
+                from the database schema to the deploy pipeline. I&apos;ve shipped production platforms across
+                education, logistics, field operations, and commerce, most of them as the only engineer.
               </p>
               <p>
                 Right now I&apos;m Founder and CTO at{" "}
@@ -73,7 +73,19 @@ export default function Home() {
                 <Link className="prose-link" href="/work/verraearth">
                   VerraEarth
                 </Link>
-                , a marketplace with Stripe Connect payouts and escrow. On mobile, I build the React Native app for{" "}
+                , a marketplace with Stripe Connect payouts and escrow, and on{" "}
+                <Link className="prose-link" href="/work/stackmsp">
+                  StackMSP
+                </Link>
+                , a live MSP platform with a signed Go Windows agent. I built{" "}
+                <Link className="prose-link" href="/work/truckpaypro">
+                  TruckPayPro
+                </Link>{" "}
+                for fleet payroll and dispatch, and{" "}
+                <Link className="prose-link" href="/work/janitoriq">
+                  JanitorIQ
+                </Link>{" "}
+                for cleaning-company operations. On mobile, I build the React Native app for{" "}
                 <Link className="prose-link" href="/work/neurapath">
                   Neurapath
                 </Link>
