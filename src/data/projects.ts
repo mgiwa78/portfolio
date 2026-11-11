@@ -92,6 +92,78 @@ export const projects: Project[] = [
     stack: ["Next.js", "Redux Toolkit", "Node.js", "TypeORM", "PostgreSQL", "Stripe Connect", "BullMQ", "Socket.io"],
   },
   {
+    slug: "payment-ledger",
+    title: "Payment Ledger",
+    year: "2026",
+    role: "Personal project",
+    featured: true,
+    summary: "Double-entry payment ledger API with idempotent transfers, webhooks, and an outbox worker.",
+    description:
+      "A personal ASP.NET Core API for double-entry balances: JWT auth, Postgres, idempotent transfers, HMAC-signed webhooks, and an outbox worker that posts deposits after accept.",
+    context:
+      "I wanted a clean place to practice money-correctness patterns outside client work: journal entries that must balance, idempotent transfer keys, optimistic concurrency on account balances, and reliable webhook intake without doing the side effect in the request path.",
+    built:
+      "Clean architecture across Domain, Application, Infrastructure, and Api projects on ASP.NET Core 10 and EF Core with Postgres. Transfers run in one transaction with Postgres xmin optimistic concurrency; inbound webhooks verify HMAC, return 202, and an outbox worker claims rows with FOR UPDATE SKIP LOCKED, backs off, then dead-letters. Serilog logging plus optional OpenTelemetry metrics.",
+    details: [
+      "Double-entry journal: money stored as integer minor units; every entry's lines must sum to zero",
+      "Idempotent transfers via Idempotency-Key: same key and body replays the response; same key and different body returns 422",
+      "HMAC-signed webhook intake with an outbox worker for deposits into a seeded system clearing account",
+      "Health checks, Serilog, and OpenTelemetry meters for transfers, webhooks, and outbox lag",
+      "Integration tests with Testcontainers when Docker is available",
+    ],
+    status: "Open source at github.com/mgiwa78/payment-ledger.",
+    stack: ["C#", "ASP.NET Core", "EF Core", "PostgreSQL", "JWT", "Serilog", "OpenTelemetry", "Docker"],
+    links: [{ label: "GitHub", href: "https://github.com/mgiwa78/payment-ledger" }],
+  },
+  {
+    slug: "distributed-workflow-engine",
+    title: "Distributed Workflow Engine",
+    year: "2026",
+    role: "Personal project",
+    featured: true,
+    summary: "Go worker-pool job engine with channels, cancelable contexts, and SQLite persistence.",
+    description:
+      "A personal Go project for concurrent job execution: a fixed worker pool, channels for handoff, context cancellation, and SQLite so unfinished work survives a process restart.",
+    context:
+      "I built this to get comfortable with Go concurrency the way production systems use it — goroutines, channels, and cancelable work — without pretending it was Temporal or a multi-node cluster.",
+    built:
+      "A CLI that can serve, submit, list, status, cancel, and wait on jobs. Serve polls pending rows, claims them, pushes work onto a jobs channel, and workers return outcomes on a results channel. Cancel flips the row and cancels that job's context. Crash leftovers marked running are reset to pending on startup.",
+    details: [
+      "Fixed worker pool with jobs and results channels",
+      "Per-job context.WithCancel so cancel stops in-flight work cleanly",
+      "SQLite-backed job store with pending, running, completed, failed, and canceled statuses",
+      "Crash recovery: running jobs reset to pending when the engine starts again",
+      "Task types for echo, sleep, and fail, kept separate from the engine core",
+    ],
+    status: "Open source at github.com/mgiwa78/distributed-workflow-engine. One process, concurrent workers, shared DB — not a multi-node system.",
+    stack: ["Go", "SQLite", "goroutines", "channels", "context"],
+    links: [{ label: "GitHub", href: "https://github.com/mgiwa78/distributed-workflow-engine" }],
+  },
+  {
+    slug: "event-ingestion",
+    title: "Event Ingestion",
+    year: "2026",
+    role: "Personal project",
+    featured: true,
+    summary: "Rust HTTP and TCP event ingestion service with bounded queues and sharded WAL files.",
+    description:
+      "A personal Rust service that accepts events over HTTP or TCP, pushes back through bounded queues, and appends NDJSON to local WAL shards with Prometheus metrics.",
+    context:
+      "I wanted a real async Rust exercise — ownership, borrowing, and Tokio — that still looked like an ingestion path: validate, queue, write durable lines, and expose health and metrics.",
+    built:
+      "Axum HTTP endpoints for single and batch events plus a TCP line protocol. Both paths validate JSON, fill missing id and timestamp, and send into a bounded channel. Worker tasks batch writes under ./data/wal/, fsync periodically, and drain cleanly on shutdown. Config via config.toml and EVENT_INGEST_* env vars.",
+    details: [
+      "POST /v1/events and /v1/events/batch, plus TCP JSON-lines on a separate port",
+      "Bounded channel capacity so overload returns pressure instead of unbounded RAM growth",
+      "Multiple WAL worker shards writing NDJSON under a configurable directory",
+      "Prometheus /metrics and /health endpoints",
+      "Graceful shutdown: stop accepts, close senders, let workers finish queued work",
+    ],
+    status: "Open source at github.com/mgiwa78/event-ingestion.",
+    stack: ["Rust", "Tokio", "Axum", "NDJSON WAL", "Prometheus"],
+    links: [{ label: "GitHub", href: "https://github.com/mgiwa78/event-ingestion" }],
+  },
+  {
     slug: "stackmsp",
     title: "StackMSP",
     year: "2025 - Present",

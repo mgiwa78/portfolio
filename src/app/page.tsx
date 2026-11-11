@@ -101,10 +101,22 @@ export default function Home() {
               </p>
               <p>
                 Most of my work is TypeScript: Next.js and React on the web, React Native and Expo on mobile (Flutter
-                before that), Node.js on the back, PostgreSQL and Redis underneath, and Go where it fits. I write the
-                tests too, including a 373-test Playwright suite for SmartEdu. I do my best work on problems that
-                involve money or many tenants: escrow and split payments, billing, background jobs, and keeping one
-                customer&apos;s data away from another&apos;s.
+                before that), Node.js on the back, PostgreSQL and Redis underneath, and Go where it fits. Outside client
+                work I also ship personal systems projects in Go, Rust, and C# — a{" "}
+                <Link className="prose-link" href="/work/payment-ledger">
+                  double-entry payment ledger
+                </Link>
+                , a{" "}
+                <Link className="prose-link" href="/work/distributed-workflow-engine">
+                  concurrent workflow engine
+                </Link>
+                , and a{" "}
+                <Link className="prose-link" href="/work/event-ingestion">
+                  Rust event-ingestion service
+                </Link>
+                . I write the tests too, including a 373-test Playwright suite for SmartEdu. I do my best work on
+                problems that involve money or many tenants: escrow and split payments, billing, background jobs, and
+                keeping one customer&apos;s data away from another&apos;s.
               </p>
             </div>
           </section>
