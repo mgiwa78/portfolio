@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import Spotlight from "@/components/Spotlight";
+import ThemeToggle from "@/components/ThemeToggle";
 import "./globals.css";
 
 const description =
@@ -35,11 +36,19 @@ export const viewport: Viewport = {
   ],
 };
 
+// Runs before first paint so there is no flash of the wrong theme. A saved choice wins;
+// otherwise follow the system setting, including live changes to it.
+const themeScript = `(function(){try{var d=document.documentElement,m=matchMedia("(prefers-color-scheme: dark)");function s(){var t=localStorage.getItem("theme");d.dataset.theme=t==="light"||t==="dark"?t:m.matches?"dark":"light"}s();m.addEventListener("change",s)}catch(e){}})()`;
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>
         <Spotlight />
+        <ThemeToggle />
         {children}
       </body>
     </html>

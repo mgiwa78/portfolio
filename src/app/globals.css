@@ -1,36 +1,32 @@
 @import "tailwindcss";
 
 /* Two colours: onyx and electric indigo. Flat, no gradients. --fill is the solid brand colour;
-   --accent is the same hue, tuned to stay readable as text on the current background. */
+   --accent is the same hue, tuned to stay readable as text on the current background.
+   Each token is light-dark(light, dark). The theme follows the system until the visitor picks one
+   with the toggle, which sets data-theme on <html> (see the inline script in layout.tsx). */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
 :root {
   color-scheme: light dark;
-  --bg: #fdfdfe;
-  --fg: #01010d;
-  --muted: #3d3d4d;
-  --subtle: #62627a;
-  --border: #e6e6ee;
-  --hover: rgba(99, 49, 251, 0.06);
+  --bg: light-dark(#fdfdfe, #01010d);
+  --fg: light-dark(#01010d, #ffffff);
+  --muted: light-dark(#3d3d4d, #c4c4d0);
+  --subtle: light-dark(#62627a, #8b8b9c);
+  --border: light-dark(#e6e6ee, #1f1f2e);
+  --hover: light-dark(rgba(99, 49, 251, 0.06), rgba(99, 49, 251, 0.14));
   --hover-border: #6331fb;
-  --tag: rgba(99, 49, 251, 0.1);
-  --accent: #6331fb;
+  --tag: light-dark(rgba(99, 49, 251, 0.1), rgba(99, 49, 251, 0.24));
+  --accent: light-dark(#6331fb, #a88bff);
   --fill: #6331fb;
-  --spot: rgba(99, 49, 251, 0.1);
+  --grid: light-dark(rgba(99, 49, 251, 0.28), rgba(150, 120, 255, 0.4));
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #01010d;
-    --fg: #ffffff;
-    --muted: #c4c4d0;
-    --subtle: #8b8b9c;
-    --border: #1f1f2e;
-    --hover: rgba(99, 49, 251, 0.14);
-    --hover-border: #6331fb;
-    --tag: rgba(99, 49, 251, 0.24);
-    --accent: #a88bff;
-    --fill: #6331fb;
-    --spot: rgba(99, 49, 251, 0.24);
-  }
+:root[data-theme="light"] {
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
 }
 
 @theme inline {
@@ -60,6 +56,21 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Cursor grid (Spotlight.tsx): 40px squares with a dot on every intersection, masked to a
+   circle that follows the pointer. */
+.cursor-grid {
+  --x: 25%;
+  --y: 20%;
+  background-image:
+    radial-gradient(circle at 0.5px 0.5px, var(--grid) 1.5px, transparent 2px),
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask-image: radial-gradient(260px circle at var(--x) var(--y), #000 0%, rgba(0, 0, 0, 0.35) 55%, transparent 100%);
+  mask-image: radial-gradient(260px circle at var(--x) var(--y), #000 0%, rgba(0, 0, 0, 0.35) 55%, transparent 100%);
+  transition: opacity 0.3s ease;
 }
 
 ::selection {
