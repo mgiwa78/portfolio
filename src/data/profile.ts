@@ -179,4 +179,5 @@ export const experience: Role[] = [
 export const education = {
   degree: "Bachelor of Software Engineering",
   school: "Nile University of Nigeria, Abuja",
+  courses: "Data Structures & Algorithms; System Design (completed Nov 2026)",
 };

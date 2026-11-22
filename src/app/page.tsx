@@ -161,6 +161,7 @@ export default function Home() {
             <p className="text-sm text-subtle">
               {education.degree}, {education.school}
             </p>
+            <p className="mt-1 text-sm text-subtle">Courses: {education.courses}</p>
             <a
               href={profile.resume}
               target="_blank"

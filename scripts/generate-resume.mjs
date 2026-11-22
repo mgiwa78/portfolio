@@ -47,6 +47,7 @@ const contact = {
 };
 
 const education = "Bachelor of Software Engineering | Nile University of Nigeria | Abuja, Nigeria";
+const courses = "Data Structures and Algorithms; System Design | Completed Nov 2026";
 
 // Bullets are keyed by variant; `default` is used when a variant has no entry of its own.
 const roles = {
@@ -462,7 +463,11 @@ function build(key, v) {
     }
   }
 
-  children.push(heading("Education"), new Paragraph({ spacing: { after: 0 }, children: [run(education)] }));
+  children.push(
+    heading("Education"),
+    new Paragraph({ spacing: { after: 20 }, children: [run(education)] }),
+    new Paragraph({ spacing: { after: 0 }, children: [run("Courses: ", { bold: true }), run(courses)] })
+  );
 
   return new Document({
     creator: contact.name,
