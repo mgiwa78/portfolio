@@ -3,8 +3,10 @@ export const profile = {
   title: "Senior Full-Stack Engineer",
   tagline:
     "Founder & CTO at SmartEdu. I build SaaS products, mobile apps, marketplaces, and the payment systems underneath them.",
-  location: "Nigeria, remote (GMT+1)",
+  location: "Cairo, Egypt, remote (GMT+2)",
   email: "mgiwa78@gmail.com",
+  phone: "+234 905 455 1017",
+  whatsapp: "https://wa.me/2349054551017",
   github: "https://github.com/mgiwa78",
   linkedin: "https://linkedin.com/in/muhammad-giwa",
   resume: "/Giwa-Muhammad-Resume.pdf",

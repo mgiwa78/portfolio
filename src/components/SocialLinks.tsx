@@ -1,10 +1,11 @@
-import { GithubLogo, LinkedinLogo, EnvelopeSimple, FileText } from "@phosphor-icons/react/dist/ssr";
+import { GithubLogo, LinkedinLogo, EnvelopeSimple, WhatsappLogo, FileText } from "@phosphor-icons/react/dist/ssr";
 import { profile } from "@/data/profile";
 
 const links = [
   { label: "GitHub", href: profile.github, Icon: GithubLogo, external: true },
   { label: "LinkedIn", href: profile.linkedin, Icon: LinkedinLogo, external: true },
   { label: "Email", href: `mailto:${profile.email}`, Icon: EnvelopeSimple, external: false },
+  { label: `WhatsApp (${profile.phone})`, href: profile.whatsapp, Icon: WhatsappLogo, external: true },
   { label: "Resume (PDF)", href: profile.resume, Icon: FileText, external: true },
 ];
 

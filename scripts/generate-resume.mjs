@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import {
   AlignmentType,
   Document,
+  ExternalHyperlink,
   HeadingLevel,
   LevelFormat,
   Packer,
@@ -133,8 +134,15 @@ const doc = new Document({
           alignment: AlignmentType.CENTER,
           spacing: { after: 160 },
           children: [
+            new TextRun({ text: "Cairo, Egypt (Remote, GMT+2)  ·  WhatsApp ", font: "Calibri", size: 18 }),
+            new ExternalHyperlink({
+              link: "https://wa.me/2349054551017",
+              children: [
+                new TextRun({ text: "+234 905 455 1017", font: "Calibri", size: 18, color: "1155CC", underline: {} }),
+              ],
+            }),
             new TextRun({
-              text: "Nigeria (Remote, GMT+1)  ·  +234 905 455 1017  ·  mgiwa78@gmail.com  ·  github.com/mgiwa78  ·  linkedin.com/in/muhammad-giwa  ·  mgiwa.vercel.app",
+              text: "  ·  mgiwa78@gmail.com  ·  github.com/mgiwa78  ·  linkedin.com/in/muhammad-giwa  ·  mgiwa.vercel.app",
               font: "Calibri",
               size: 18,
             }),
