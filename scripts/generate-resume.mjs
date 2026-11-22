@@ -303,7 +303,7 @@ const variants = {
     ],
     headline: "Senior Full-Stack Engineer | TypeScript, React, Next.js, Node.js, PostgreSQL",
     summary:
-      "Senior full-stack engineer with 5+ years of experience building production SaaS platforms, marketplaces, mobile apps, and payment systems with TypeScript, React, Next.js, Node.js, and PostgreSQL. Founder and CTO of SmartEdu, a live multi-tenant school-management SaaS, and sole or lead engineer on platforms in education, logistics, field operations, and commerce. Strong in Stripe Connect and Paystack payments, multi-tenant architecture, Redis and BullMQ background jobs, automated testing, and owning CI/CD and infrastructure end to end.",
+      "Senior full-stack engineer with 6+ years of experience building production SaaS platforms, marketplaces, mobile apps, and payment systems with TypeScript, React, Next.js, Node.js, and PostgreSQL. Founder and CTO of SmartEdu, a live multi-tenant school-management SaaS, and sole or lead engineer on platforms in education, logistics, field operations, and commerce. Strong in Stripe Connect and Paystack payments, multi-tenant architecture, Redis and BullMQ background jobs, automated testing, and owning CI/CD and infrastructure end to end.",
     skills: [S.languages, S.frontend, S.backend, S.databases, S.payments, S.mobile, S.devops, S.testing, S.security],
     roles: ["smartedu", "freelance", "nexlen", "fairchild", "raffles", "ideas", "alphatrol", "tegy", "cie", "barian", "igs", "amron"],
     projects: ["ledger", "workflow", "ingestion"],
@@ -313,7 +313,7 @@ const variants = {
     files: ["Claude outputs/Giwa-Muhammad-Resume-Backend.docx"],
     headline: "Senior Backend Engineer | Node.js, TypeScript, PostgreSQL, Go",
     summary:
-      "Backend-leaning full-stack engineer with 5+ years of experience designing the data models, APIs, and asynchronous infrastructure behind production products: multi-tenant architectures on PostgreSQL, job pipelines on Redis and BullMQ, event-driven services on RabbitMQ, and payment systems on Stripe Connect and Paystack, usually as the engineer who owns the system from schema to deployment. Founder of SmartEdu, a live multi-tenant SaaS; previously led engineering on FairChild Institute's learning platform and backend architecture at Raffles Energies. Personal systems work in Go, Rust, and C#.",
+      "Backend-leaning full-stack engineer with 6+ years of experience designing the data models, APIs, and asynchronous infrastructure behind production products: multi-tenant architectures on PostgreSQL, job pipelines on Redis and BullMQ, event-driven services on RabbitMQ, and payment systems on Stripe Connect and Paystack, usually as the engineer who owns the system from schema to deployment. Founder of SmartEdu, a live multi-tenant SaaS; previously led engineering on FairChild Institute's learning platform and backend architecture at Raffles Energies. Personal systems work in Go, Rust, and C#.",
     skills: [S.backend, S.languages, S.databases, S.async, S.devops, S.payments, S.security, S.testing, S.frontend],
     roles: ["smartedu", "freelance", "nexlen", "fairchild", "raffles", "cie", "alphatrol", "tegy", "ideas", "barian", "amron"],
     projects: ["ledger", "workflow", "ingestion"],
@@ -323,7 +323,7 @@ const variants = {
     files: ["Claude outputs/Giwa-Muhammad-Resume-Payments.docx"],
     headline: "Senior Full-Stack Engineer | Payments & Fintech (Stripe Connect, Paystack)",
     summary:
-      "Full-stack engineer with 5+ years of experience, focused on payments. Built Stripe Connect split payments with delayed escrow release, Paystack fee collection with installment plans and a platform revenue share, a buy-now-pay-later engine on a double-entry ledger, Stripe subscription billing with QuickBooks sync, and the reconciliation jobs behind them. Founder of SmartEdu, a live multi-tenant platform that collects school fees through Paystack. Comfortable owning the whole system: TypeScript, Node.js, and PostgreSQL on the back end, Next.js and React on the front, Redis and BullMQ for asynchronous work, and the CI/CD that ships it.",
+      "Full-stack engineer with 6+ years of experience, focused on payments. Built Stripe Connect split payments with delayed escrow release, Paystack fee collection with installment plans and a platform revenue share, a buy-now-pay-later engine on a double-entry ledger, Stripe subscription billing with QuickBooks sync, and the reconciliation jobs behind them. Founder of SmartEdu, a live multi-tenant platform that collects school fees through Paystack. Comfortable owning the whole system: TypeScript, Node.js, and PostgreSQL on the back end, Next.js and React on the front, Redis and BullMQ for asynchronous work, and the CI/CD that ships it.",
     skills: [S.payments, S.backend, S.databases, S.async, S.languages, S.frontend, S.devops, S.security, S.testing],
     roles: ["smartedu", "freelance", "nexlen", "fairchild", "raffles", "tegy", "alphatrol", "ideas", "cie", "amron"],
     projects: ["ledger", "tranche"],
@@ -333,7 +333,7 @@ const variants = {
     files: ["Claude outputs/Giwa-Muhammad-Resume-Mobile.docx"],
     headline: "Mobile Engineer | React Native, Expo, TypeScript, Flutter",
     summary:
-      "Mobile engineer with 5+ years of full-stack experience, building React Native apps with Expo and, earlier, Flutter. Recent work includes a private messaging and voice-calling app with push notifications and in-app subscriptions, a buy-now-pay-later shopper app with Paystack checkout and payment reminders, and the mobile app for a UK trades-management platform. Because I also build the APIs and web apps behind them, I handle the whole mobile path: authentication and secure token storage, payments, push notifications, realtime updates, EAS builds and over-the-air updates, and the backend endpoints the app depends on.",
+      "Mobile engineer with 6+ years of full-stack experience, building React Native apps with Expo and, earlier, Flutter. Recent work includes a private messaging and voice-calling app with push notifications and in-app subscriptions, a buy-now-pay-later shopper app with Paystack checkout and payment reminders, and the mobile app for a UK trades-management platform. Because I also build the APIs and web apps behind them, I handle the whole mobile path: authentication and secure token storage, payments, push notifications, realtime updates, EAS builds and over-the-air updates, and the backend endpoints the app depends on.",
     skills: [
       ["Mobile", "React Native, Expo, Expo Router, React Navigation, Flutter, EAS Build, over-the-air updates"],
       ["Mobile platform", "Push notifications (Expo, Firebase Cloud Messaging), in-app purchases, secure token storage, deep linking, camera and media"],
@@ -351,7 +351,7 @@ const variants = {
     files: ["Claude outputs/Giwa-Muhammad-Resume-QA-Automation.docx"],
     headline: "QA Automation Engineer / SDET | Playwright, TypeScript, Jest",
     summary:
-      "Software engineer in test with 5+ years of full-stack experience. I have written more than 500 automated tests across the products I build: a 373-test Playwright suite covering four user roles and an admin backoffice, unit tests in Jest and Node's test runner, and targeted tests for the riskiest logic, including payment calculations, gateway signature checks, grading engines, and access control. Because I also build the systems I test, I write suites that stay maintainable: API-driven fixtures instead of UI logins, seeded test data, role-permission matrices, and failure artifacts (traces, screenshots, video) that make a red test quick to diagnose.",
+      "Software engineer in test with 6+ years of full-stack experience. I have written more than 500 automated tests across the products I build: a 373-test Playwright suite covering four user roles and an admin backoffice, unit tests in Jest and Node's test runner, and targeted tests for the riskiest logic, including payment calculations, gateway signature checks, grading engines, and access control. Because I also build the systems I test, I write suites that stay maintainable: API-driven fixtures instead of UI logins, seeded test data, role-permission matrices, and failure artifacts (traces, screenshots, video) that make a red test quick to diagnose.",
     skills: [
       ["Test automation", "Playwright, Jest, Node.js test runner, ts-jest"],
       ["Test types", "End-to-end, unit, regression, role-based access, authentication and security, API testing"],

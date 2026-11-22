@@ -56,7 +56,7 @@ export default function Home() {
             <SectionHeading>About</SectionHeading>
             <div className="space-y-4">
               <p>
-                I&apos;m a full-stack engineer working remotely from Cairo, Egypt, with more than five years of experience.
+                I&apos;m a full-stack engineer working remotely from Cairo, Egypt, with more than six years of experience.
                 I build SaaS products, mobile apps,
                 marketplaces, and the payment systems underneath them, usually as the engineer responsible for the whole thing,
                 from the database schema to the deploy pipeline. I&apos;ve shipped production platforms across
